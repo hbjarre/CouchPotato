@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import SearchView from "../SearchView/SearchView";
 import { InputGroup, Button, FormControl, DropdownButton, Dropdown } from 'react-bootstrap';
 
@@ -6,7 +7,7 @@ import { InputGroup, Button, FormControl, DropdownButton, Dropdown } from 'react
 class Header extends Component {
   render() {
     return (
-        <div class="bg-light p-4">
+        <div className="bg-light p-4">
             <div className="d-flex justify-content-between container">
                 <h1>CouchPotato</h1>
                 <SearchView />
@@ -16,10 +17,10 @@ class Header extends Component {
                         title="User"
                         id="input-group-dropdown-1"
                         >
-                            <Dropdown.Item href="#">Favorites</Dropdown.Item>
-                            <Dropdown.Item href="#">Settings</Dropdown.Item>
+                            <Dropdown.Item href="/favorites">Favorites</Dropdown.Item>
+                            <Dropdown.Item href="/settings">Settings</Dropdown.Item>
                             <Dropdown.Divider />
-                            <Dropdown.Item href="#">Logout</Dropdown.Item>
+                            <Dropdown.Item href="/login">Logout</Dropdown.Item>
                         </DropdownButton>
                     </InputGroup>
                 </div>
