@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Route } from "react-router-dom";
 import Welcome from "./Welcome/Welcome";
-import Header from "./Header/Header";
 import Login from "./Login/Login";
 import "./App.css";
 
