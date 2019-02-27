@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Route } from "react-router-dom";
 import Welcome from "./Welcome/Welcome";
 import Header from "./Header/Header";
+import Login from "./Login/Login"
 import "./App.css";
 import fire from "./config/Fire";
 
@@ -36,7 +37,7 @@ class App extends Component {
           <Route exact path="/" component={Welcome} />
         </div>
         <div className="App"> 
-          {this.state.user ? ()}
+          {this.state.user ? (<Welcome />) : (<Login />)}
         </div>
       </div>
     );
