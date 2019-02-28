@@ -11,7 +11,7 @@ class SearchView extends Component {
         aria-label="Search"
         />
         <select>
-            <option selected value="all">All</option>
+            <option defaultValue="all">All</option>
             <option value="lime">Action</option>
             <option value="comedy">Comedy</option>
             <option value="horrer">Horror</option>
