@@ -1,9 +1,8 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import SearchView from "../SearchView/SearchView";
-import { InputGroup, Button, FormControl, DropdownButton, Dropdown } from 'react-bootstrap';
+import { InputGroup, Button, FormControl, DropdownButton, Dropdown, NavDropdown } from 'react-bootstrap';
 import fire from "../config/Fire";
-
 
 class Header extends Component {
     constructor(props) {
@@ -21,7 +20,7 @@ class Header extends Component {
                 <div className="container">
                     <Link to="/" style={{ textDecoration: "black", color: "black" }}>
                         <div className="row align-items-center mx-auto">
-                            <img src="/img/soffpotatis.png" className="mx-auto" style={{width: 75, height: 'auto'}} alt="CouchPotato Logo" />
+                            <img src="/img/soffpotatis.png" className="mx-auto" style={{ width: 75, height: 'auto' }} alt="CouchPotato Logo" />
                             <h2 className="mx-auto">CouchPotato</h2>
                         </div>
                     </Link>
@@ -37,16 +36,16 @@ class Header extends Component {
                                 id="input-group-dropdown-1"
                                 className="mx-1"
                             >
-                                <Dropdown.Item href="/wish_list">Wish list</Dropdown.Item>
-                                <Dropdown.Item href="/my_rated_list">My rated list</Dropdown.Item>
-                                <Dropdown.Item href="/settings">Settings</Dropdown.Item>
+                                <Dropdown.Item as={Link} to="/wish_list">Wish list</Dropdown.Item>
+                                <Dropdown.Item as={Link} to="/my_rated_list">My rated list</Dropdown.Item>
+                                <Dropdown.Item as={Link} to="/settings">Settings</Dropdown.Item>
                                 <Dropdown.Divider />
                                 <Dropdown.Item href="#" onClick={this.logout}>Logout</Dropdown.Item>
                             </DropdownButton>
                         </div>
                     </div>
                 </div>
-            </nav>
+            </nav >
         );
     }
 }
