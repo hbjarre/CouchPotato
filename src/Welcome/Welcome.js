@@ -1,14 +1,19 @@
 import React, { Component } from "react";
 import Header from "../Header/Header";
 import "./Welcome.css";
+import fire from "../config/Fire";
+import Header from "../Header/Header"
 
 class Welcome extends Component {
+  constructor(props){
+    super(props);
+  }
+
   render() {
     return (
       <div>
         <Header />
-      <div>
-        <p>Bla bla!</p>
+        <p>The home page!</p>
       </div>
       </div>
     );
