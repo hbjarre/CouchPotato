@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import Header from "../Header/Header";
 import "./Welcome.css";
 import fire from "../config/Fire";
-import Header from "../Header/Header"
 
 class Welcome extends Component {
   constructor(props){
@@ -14,7 +13,6 @@ class Welcome extends Component {
       <div>
         <Header />
         <p>The home page!</p>
-      </div>
       </div>
     );
   }
