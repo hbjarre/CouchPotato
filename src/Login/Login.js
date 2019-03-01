@@ -37,9 +37,9 @@ class Login extends Component {
 
     render() {
         return (
-            <div className="p-4">
+            <div className="p-5">
                 <form>
-                    <div className="d-flex justify-content-begin form-group">
+                    <div className="d-flex justify-content-center form-group w-25">
                         <label htmlFor="exampleInputEmail1">Email address</label>
                         <input value={this.state.email} onChange={this.handleChange} type="email" name="email"
                             className="form-control" id="exampleInputEmail" aria-describedby="emailHelp"
