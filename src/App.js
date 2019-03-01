@@ -5,12 +5,13 @@ import Header from "./Header/Header";
 import Login from "./Login/Login"
 import "./App.css";
 import fire from "./config/Fire";
+import Settings from "./Settings/Settings"
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      user:{},
+      user: {},
     };
   }
 
@@ -32,9 +33,15 @@ class App extends Component {
   render() {
     return (
 
-        <div className="App">
-          {this.state.user ? (<Welcome />) : (<Login />)}
-        </div>
+      <div className="App">
+        {this.state.user ? (
+          <div>
+            <Header />
+            <Route exact path="/" render={() => <Welcome />} />
+            <Route path="/settings" render={() => <Settings />} />
+          </div>
+        ) : (<Login />)}
+      </div>
 
     );
   }
