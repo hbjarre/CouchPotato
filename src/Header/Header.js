@@ -19,7 +19,7 @@ class Header extends Component {
         return (
             <div className="bg-light p-4">
                 <div className="d-flex justify-content-between container">
-                    <Link to="/"><h1>CouchPotato</h1></Link>
+                    <Link style={{ textDecoration: 'none', color: 'black'}} to="/"><h1>CouchPotato</h1></Link>
                     <SearchView />
                     <div className="d-flex justify-content-begin">
                         <InputGroup className="mb-3">
