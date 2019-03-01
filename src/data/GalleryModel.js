@@ -1,7 +1,8 @@
 import ObservableModel from "./ObservableModel";
+import "./apikey"
 
 
-const APIKEY = "bad7ef2d"
+const APIKEY = API_KEY
 const BASE_URL = "http://www.omdbapi.com/?apikey="+APIKEY+"&";
 
 
