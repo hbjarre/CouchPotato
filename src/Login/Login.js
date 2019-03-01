@@ -37,23 +37,31 @@ class Login extends Component {
 
     render() {
         return (
-            <div className="p-5">
-                <form>
-                    <div className="d-flex justify-content-center form-group w-25">
-                        <label htmlFor="exampleInputEmail1">Email address</label>
-                        <input value={this.state.email} onChange={this.handleChange} type="email" name="email"
-                            className="form-control" id="exampleInputEmail" aria-describedby="emailHelp"
-                            placeholder="Enter email" />
-                        <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
+            <div className="col-sm-9 col-md-7 col-lg-5 mx-auto">
+                <div className="mt-5">
+                    <img src="img/soffpotatis.png" className="w-25 mx-auto d-block" alt="CouchPotato Logo" />
+                    <h1 className="text-center">CouchPotato</h1>
+                </div>
+                <div className="card my-5">
+                    <div className="card-body">
+                        <h5 className="card-title text-center">Login</h5>
+                        <form className="w-100">
+                            <div className="form-group">
+                                <label htmlFor="exampleInputEmail1">Email address</label>
+                                <input value={this.state.email} onChange={this.handleChange} type="email" name="email"
+                                    className="form-control form-control-lg" id="exampleInputEmail" aria-describedby="emailHelp"
+                                    placeholder="Email address" />
+                            </div>
+                            <div className="form-group">
+                                <label htmlFor="exampleInputPassword1">Password</label>
+                                <input value={this.state.password} onChange={this.handleChange} type="password" name="password"
+                                    className="form-control form-control-lg" id="exampleInputPassword1" placeholder="Password" />
+                            </div>
+                            <button type="submit" onClick={this.login} className="btn btn-primary">Login</button>
+                            <button onClick={this.signup} className="btn btn-secondary ml-3">Signup</button>
+                        </form>
                     </div>
-                    <div className="form-group">
-                        <label htmlFor="exampleInputPassword1">Password</label>
-                        <input value={this.state.password} onChange={this.handleChange} type="password" name="password"
-                            className="form-control" id="exampleInputPassword1" placeholder="Password" />
-                    </div>
-                    <button type="submit" onClick={this.login} className="btn btn-primary">Login</button>
-                    <button onClick={this.signup} style={{ marginLeft: '25px' }} className="btn btn-success">Signup</button>
-                </form>
+                </div>
             </div>
         );
     }
