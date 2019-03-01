@@ -21,7 +21,7 @@ class Header extends Component {
                 <div className="container">
                     <div className="row align-items-center mx-auto">
                         <img src="/img/soffpotatis.png" className="mx-auto" style={{width: 75, height: 'auto'}} alt="CouchPotato Logo" />
-                        <h2 className="mx-auto">CouchPotato</h2>
+                        <Link to="/"><h2 className="mx-auto">CouchPotato</h2></Link>
                     </div>
                     <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
@@ -35,8 +35,9 @@ class Header extends Component {
                                 id="input-group-dropdown-1"
                                 className="mx-1"
                             >
-                                <Dropdown.Item href="#">Favorites</Dropdown.Item>
-                                <Dropdown.Item href="#">Settings</Dropdown.Item>
+                                <Dropdown.Item href="/wish_list">Wish list</Dropdown.Item>
+                                <Dropdown.Item href="/my_rated_list">My rated list</Dropdown.Item>
+                                <Dropdown.Item href="/settings">Settings</Dropdown.Item>
                                 <Dropdown.Divider />
                                 <Dropdown.Item href="#" onClick={this.logout}>Logout</Dropdown.Item>
                             </DropdownButton>

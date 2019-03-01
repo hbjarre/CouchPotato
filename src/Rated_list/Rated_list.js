@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import fire from "../config/Fire";
 
-class Settings extends Component {
+class Rated_list extends Component {
   constructor(props){
     super(props);
   }
@@ -9,10 +9,10 @@ class Settings extends Component {
   render() {
     return (
       <div>
-        <p>The settings page!</p>
+        <p>The rated list page!</p>
       </div>
     );
   }
 }
 
-export default Settings;
+export default Rated_list;
