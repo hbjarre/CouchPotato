@@ -19,7 +19,7 @@ class Header extends Component {
         return (
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
                 <div className="container">
-                    <Link to="/">
+                    <Link to="/" style={{ textDecoration: "black", color: "black" }}>
                         <div className="row align-items-center mx-auto">
                             <img src="/img/soffpotatis.png" className="mx-auto" style={{width: 75, height: 'auto'}} alt="CouchPotato Logo" />
                             <h2 className="mx-auto">CouchPotato</h2>
