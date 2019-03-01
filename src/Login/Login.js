@@ -19,6 +19,9 @@ class Login extends Component {
         fire.auth().signInWithEmailAndPassword(this.state.email, this.state.password).then((u) => {
         }).catch((error) => {
             console.log(error);
+            let alert = document.getElementById("alert-danger");
+            alert.classList.remove('d-none');
+            alert.innerHTML = error.message;
         });
     }
 
@@ -26,6 +29,9 @@ class Login extends Component {
         e.preventDefault();
         fire.auth().createUserWithEmailAndPassword(this.state.email, this.state.password).catch((error) => {
             console.log(error);
+            let alert = document.getElementById("alert-danger");
+            alert.classList.remove('d-none');
+            alert.innerHTML = error.message;
         });
     }
 
@@ -59,6 +65,7 @@ class Login extends Component {
                             </div>
                             <button type="submit" onClick={this.login} className="btn btn-primary">Login</button>
                             <button onClick={this.signup} className="btn btn-secondary ml-3">Signup</button>
+                            <div className="alert alert-danger mt-4 d-none" role="alert" id="alert-danger"></div>
                         </form>
                     </div>
                 </div>
