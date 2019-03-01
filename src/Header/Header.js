@@ -19,10 +19,12 @@ class Header extends Component {
         return (
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
                 <div className="container">
-                    <div className="row align-items-center mx-auto">
-                        <img src="/img/soffpotatis.png" className="mx-auto" style={{width: 75, height: 'auto'}} alt="CouchPotato Logo" />
-                        <Link to="/"><h2 className="mx-auto">CouchPotato</h2></Link>
-                    </div>
+                    <Link to="/">
+                        <div className="row align-items-center mx-auto">
+                            <img src="/img/soffpotatis.png" className="mx-auto" style={{width: 75, height: 'auto'}} alt="CouchPotato Logo" />
+                            <h2 className="mx-auto">CouchPotato</h2>
+                        </div>
+                    </Link>
                     <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                     </button>
