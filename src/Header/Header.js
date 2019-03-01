@@ -28,7 +28,7 @@ class Header extends Component {
                                 id="input-group-dropdown-1"
                             >
                                 <Dropdown.Item href="#">Favorites</Dropdown.Item>
-                                <Dropdown.Item href="#">Settings</Dropdown.Item>
+                                <Dropdown.Item href="/settings">Settings</Dropdown.Item>
                                 <Dropdown.Divider />
                                 <Dropdown.Item href="#" onClick={this.logout}>Logout</Dropdown.Item>
                             </DropdownButton>
