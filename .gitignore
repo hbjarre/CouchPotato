@@ -81,3 +81,11 @@ typings/
 
 # DS_Store
 .DS_Store
+
+# Buid for website
+build
+
+# firebase
+.firebase
+.firebaserc
+firebase.json
