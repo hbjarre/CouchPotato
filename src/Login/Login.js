@@ -38,6 +38,7 @@ class Login extends Component {
 
 
     handleChange(e) {
+        document.getElementById("alert-danger").classList.add('d-none'); // remove error message if user writes something in inputs
         this.setState({ [e.target.name]: e.target.value });
     }
 
