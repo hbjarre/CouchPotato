@@ -46,7 +46,7 @@ class Login extends Component {
         return (
             <div className="col-sm-9 col-md-7 col-lg-5 mx-auto">
                 <div className="mt-5">
-                    <img src="img/soffpotatis.png" className="w-25 mx-auto d-block" alt="CouchPotato Logo" />
+                    <img src="/img/soffpotatis.png" className="w-25 mx-auto d-block" alt="CouchPotato Logo" />
                     <h1 className="text-center">CouchPotato</h1>
                 </div>
                 <div className="card my-5">
