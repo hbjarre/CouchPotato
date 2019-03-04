@@ -1,9 +1,8 @@
 import ObservableModel from "./ObservableModel";
-import "./apikey"
+import API_KEY from "../data/apikey"
 
 
-const APIKEY = API_KEY
-const BASE_URL = "http://www.omdbapi.com/?apikey="+APIKEY+"&";
+const BASE_URL = "http://www.omdbapi.com/?apikey="+API_KEY+"&";
 
 
 class GalleryModel extends ObservableModel {
@@ -16,16 +15,15 @@ class GalleryModel extends ObservableModel {
       getMovie(search_string) {
         //http://www.omdbapi.com/?apikey=bad7ef2d&t=Captain+Marvel
         //http://www.omdbapi.com/?t=Captain+Marvel
-        const url = `${BASE_URL}t=` + search_string;
+        let params = "&type=movie&r=json"
+        const url = `${BASE_URL}s=` + search_string + params;
         return fetch(url).then(this.processResponse);
       }
 
       getTest() {
 
         const url = `${BASE_URL}t=Avatar`;
-        console.log(url)
         var movie = fetch(url).then(this.processResponse);
-        console.log(movie.results)
         return movie
 
       }

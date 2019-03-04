@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Header from "../Header/Header";
+import SearchResults from "../SearchResultView/SearchResultView"
 import "./Welcome.css";
 import fire from "../config/Fire";
 
@@ -13,6 +14,7 @@ class Welcome extends Component {
       <div>
         <Header />
         <p>The home page!</p>
+        <SearchResults />
       </div>
     );
   }
