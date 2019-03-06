@@ -9,7 +9,7 @@ class SearchView extends Component {
     };
 
     click = () => {
-      
+
       //this.props.getMovies();
   }
 
@@ -17,7 +17,7 @@ class SearchView extends Component {
   render() {
     return (
       <div className="d-flex">
-        <InputGroup className="mb-3">
+        <InputGroup>
         <FormControl
         placeholder="Search..."
         aria-label="Search"
@@ -29,7 +29,7 @@ class SearchView extends Component {
             <option value="horrer">Horror</option>
         </select>
         <button onClick={this.click}>Search</button>
-      
+
         </InputGroup>
       </div>
     );

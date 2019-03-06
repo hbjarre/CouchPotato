@@ -1,9 +1,8 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import SearchView from "../SearchView/SearchView";
-import { InputGroup, Button, FormControl, DropdownButton, Dropdown } from 'react-bootstrap';
+import { InputGroup, Button, FormControl, DropdownButton, Dropdown, NavDropdown } from 'react-bootstrap';
 import fire from "../config/Fire";
-
 
 class Header extends Component {
     constructor(props) {
@@ -17,25 +16,36 @@ class Header extends Component {
 
     render() {
         return (
-            <div className="bg-light p-4">
-                <div className="d-flex justify-content-between container">
-                    <h1>CouchPotato</h1>
-                    <SearchView />
-                    <div className="d-flex justify-content-begin">
-                        <InputGroup className="mb-3">
+            <nav className="navbar navbar-expand-lg navbar-light bg-light">
+                <div className="container">
+                    <Link to="/" style={{ textDecoration: "black", color: "black" }}>
+                        <div className="row align-items-center mx-auto">
+                            <img src="/img/soffpotatis.png" className="mx-auto" style={{ width: 75, height: 'auto' }} alt="CouchPotato Logo" />
+                            <h2 className="mx-auto">CouchPotato</h2>
+                        </div>
+                    </Link>
+                    <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+                        <span className="navbar-toggler-icon"></span>
+                    </button>
+                    <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
+                        <div className="d-flex w-100 justify-content-between">
+                            <div></div>
+                            <SearchView />
                             <DropdownButton
                                 title="User"
                                 id="input-group-dropdown-1"
+                                className="mx-1"
                             >
-                                <Dropdown.Item href="#">Favorites</Dropdown.Item>
-                                <Dropdown.Item href="#">Settings</Dropdown.Item>
+                                <Dropdown.Item as={Link} to="/wish_list">Wish list</Dropdown.Item>
+                                <Dropdown.Item as={Link} to="/my_rated_list">My rated list</Dropdown.Item>
+                                <Dropdown.Item as={Link} to="/settings">Settings</Dropdown.Item>
                                 <Dropdown.Divider />
                                 <Dropdown.Item href="#" onClick={this.logout}>Logout</Dropdown.Item>
                             </DropdownButton>
-                        </InputGroup>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </nav >
         );
     }
 }

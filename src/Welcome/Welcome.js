@@ -12,7 +12,6 @@ class Welcome extends Component {
   render() {
     return (
       <div>
-        <Header />
         <p>The home page!</p>
         <SearchResults />
       </div>
