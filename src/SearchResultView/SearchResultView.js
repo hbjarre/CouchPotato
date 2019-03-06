@@ -2,8 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import modelInstance from "../data/GalleryModel"
 import SearchView from "../SearchView/SearchView";
-
-
+import MovieCard from "../MovieCard/MovieCard";
 
 class SearchResults extends Component {
 
@@ -13,22 +12,20 @@ class SearchResults extends Component {
 
     this.state = {
       status: "LOADING"
-
     }
 
   }
 
-  searchMovie() {
-   
-    alert("ima search")
+  updateApi = () => {
+    let search = this.props.search;
+    
 
-  }
-
-  componentDidMount() {
-
+    if (search == undefined) {
+      search = "Avatar";
+    }
 
     modelInstance
-      .getMovie("Avatar")
+      .getMovie(search)
       .then(movieResponse => {
         this.setState({
           status: "LOADED",
@@ -36,18 +33,24 @@ class SearchResults extends Component {
 
         });
       })
-      .catch(() => {
+      .catch((e) => {
         this.setState({
           status: "ERROR"
         });
       });
+  }
 
+  componentDidMount() {
+    this.updateApi();
+  }
+
+  componentDidUpdate() {
+    this.updateApi();
   }
 
   render() {
     let movies = null;
     let html = null;
-
     
 
     // depending on the state we either generate
@@ -55,27 +58,32 @@ class SearchResults extends Component {
     // of returned movies
     switch (this.state.status) {
       case "LOADING":
-        movies = <em>Loading...</em>;
+        html = <em>Loading...</em>;
         break;
       case "LOADED":
       
-        movies = this.state.movies
-        html = movies.Search.map((element, index) =>
-          <li key={index}>{element.Title} {element.Year}</li>
-        )
+        movies = this.state.movies;
 
-          ;
+        if (movies.Search != undefined) {
+          html = movies.Search.map((element, index) =>
+            <MovieCard movie={element} key={index} />
+          );
+        }
+        else {
+          html = <b>Could not find movies.</b>;
+        }
         break;
       default:
-        movies = <b>Failed to load data, please try again</b>;
+        html = <b>Failed to load data, please try again.</b>;
         break;
     }
 
     return (
-      <div className="Movies">
+      <div className="container">
+      
  
         <h3>Movies</h3>
-        <ul>{html}</ul>
+        <div className="d-flex flex-wrap">{html}</div>
       </div>
     );
   }

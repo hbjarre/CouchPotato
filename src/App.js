@@ -40,7 +40,8 @@ class App extends Component {
         {this.state.user ? (
           <div>
             <Header />
-            <Route exact path="/" render={() => <Welcome />} />
+            <Route exact path="/" component={Welcome} />
+            <Route exact path="/search/:str" component={Welcome} />
             <Route path="/settings" render={() => <Settings />} />
             <Route path="/wish_list" render={() => <Wish_list />} />
             <Route path="/my_rated_list" render={() => <Rated_list />} />

@@ -12,8 +12,7 @@ class Welcome extends Component {
   render() {
     return (
       <div>
-        <p>The home page!</p>
-        <SearchResults />
+        <SearchResults search={this.props.match.params.str} />
       </div>
     );
   }

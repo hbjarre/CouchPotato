@@ -1,26 +1,33 @@
 import React, { Component } from "react";
 import { InputGroup, FormControl, Button } from 'react-bootstrap';
-import SearchResults from "../SearchResultView/SearchResultView"
+import SearchResults from "../SearchResultView/SearchResultView";
+import { Link } from "react-router-dom";
 
 class SearchView extends Component {
 
   constructor(props) {
     super(props);
+    this.state = {searchValue: ''};
     };
 
     click = () => {
+      let search = this.state.searchValue
+    }
 
-      //this.props.getMovies();
-  }
+    handleSearchChange = (event) => {
+      this.setState({searchValue: event.target.value});
+    }
 
 
   render() {
     return (
-      <div className="d-flex">
+      <form className="d-flex">
         <InputGroup>
         <FormControl
         placeholder="Search..."
         aria-label="Search"
+        value={this.state.searchValue}
+        onChange={this.handleSearchChange}
         />
         <select>
             <option defaultValue="all">All</option>
@@ -28,10 +35,19 @@ class SearchView extends Component {
             <option value="comedy">Comedy</option>
             <option value="horrer">Horror</option>
         </select>
-        <button onClick={this.click}>Search</button>
+        <Link
+          to={{
+            pathname: "/search/" + this.state.searchValue.replace(" ", "+"),
+            state: {
+              search: this.state.searchValue
+            }
+          }}
+        >
+        <button type="submit">Search</button>
+        </Link>
 
         </InputGroup>
-      </div>
+      </form>
     );
   }
 }
