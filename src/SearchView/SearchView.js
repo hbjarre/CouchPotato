@@ -1,7 +1,19 @@
 import React, { Component } from "react";
 import { InputGroup, FormControl, Button } from 'react-bootstrap';
+import SearchResults from "../SearchResultView/SearchResultView"
 
 class SearchView extends Component {
+
+  constructor(props) {
+    super(props);
+    };
+
+    click = () => {
+      
+      //this.props.getMovies();
+  }
+
+
   render() {
     return (
       <div className="d-flex">
@@ -16,12 +28,14 @@ class SearchView extends Component {
             <option value="comedy">Comedy</option>
             <option value="horrer">Horror</option>
         </select>
-        <Button>Search</Button>
+        <button onClick={this.click}>Search</button>
       
         </InputGroup>
       </div>
     );
   }
 }
+
+
 
 export default SearchView;
