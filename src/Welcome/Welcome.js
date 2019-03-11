@@ -12,7 +12,6 @@ class Welcome extends Component {
   render() {
     return (
       <div>
-        <SearchResults search={this.props.match.params.str} />
       </div>
     );
   }

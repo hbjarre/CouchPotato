@@ -9,23 +9,41 @@ class SearchResults extends Component {
   constructor(props) {
 
     super(props);
-
     this.state = {
-      status: "LOADING"
+      status: "LOADING",
+      search: this.props.match.params.str
     }
-
+    this.url = window.location.href.split("/")[4];
+    console.log(this.url);
   }
 
-  updateApi = () => {
-    let search = this.props.search;
+  componentWillReceiveProps(nextProps){
+    const old = this.state.search;
+    const newStr = nextProps.match.params.str;
+    console.log(newStr)
+
+    if (old != newStr){
+      modelInstance.getMovie(newStr).then(
+        movieResponse =>{
+        this.setState({
+          status: "LOADED",
+            search: newStr,
+            movies: movieResponse
+        })
+      });
+    }
+  }
+
+  componentDidMount() {
+    this.search = this.props.search;
     
 
-    if (search == undefined) {
-      search = "Avatar";
+    if (this.state.search == undefined) {
+      this.state.search = "Avatar";
     }
 
     modelInstance
-      .getMovie(search)
+      .getMovie(this.state.search)
       .then(movieResponse => {
         this.setState({
           status: "LOADED",
@@ -40,12 +58,8 @@ class SearchResults extends Component {
       });
   }
 
-  componentDidMount() {
-    this.updateApi();
-  }
-
-  componentDidUpdate() {
-    this.updateApi();
+  componentDidUnMount() {
+    
   }
 
   render() {
@@ -66,7 +80,7 @@ class SearchResults extends Component {
 
         if (movies.Search != undefined) {
           html = movies.Search.map((element, index) =>
-            <MovieCard movie={element} key={index} />
+            <Link to={`${this.url}/${element.imdbID}/${element.Title}`} key={index}><MovieCard movie={element} /></Link>
           );
         }
         else {

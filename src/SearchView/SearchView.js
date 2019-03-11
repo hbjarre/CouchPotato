@@ -8,21 +8,23 @@ class SearchView extends Component {
   constructor(props) {
     super(props);
     this.state = {searchValue: ''};
+    
     };
-
-    click = () => {
-      let search = this.state.searchValue
-    }
 
     handleSearchChange = (event) => {
       this.setState({searchValue: event.target.value});
     }
 
+    handleSubmit = (event) => {
+      //Här vill vi göra något så att searchresultview uppdateras
+      this.setState({searchValue: event.target.value});
+    }
 
   render() {
     return (
-      <form className="d-flex">
-        <InputGroup>
+      <form className="d-flex" onSubmit={this.handleSubmit}>
+        {//Måste vi använda angular här? Är det verkligen bra?
+        }
         <FormControl
         placeholder="Search..."
         aria-label="Search"
@@ -45,8 +47,6 @@ class SearchView extends Component {
         >
         <button type="submit">Search</button>
         </Link>
-
-        </InputGroup>
       </form>
     );
   }
