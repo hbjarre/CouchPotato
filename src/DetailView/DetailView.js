@@ -69,15 +69,15 @@ class DetailView extends Component {
             modelInstance.addToWatch(this.state.movie).then(() => {
                 this.setState({onWishList: true});
             });
-        }        
+        }
     }
 
     CouchPotatoRating(movie) {
         if (movie.Metascore == "N/A") {
-            return <h4>No score</h4>
+            return <h5>No score</h5>
         }
         else {
-            return <h3>{this.state.movie.Metascore}/100</h3>
+            return <h4>{this.state.movie.Metascore}/100</h4>
         }
 
     }
