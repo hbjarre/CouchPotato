@@ -1,0 +1,14 @@
+.detail_header {
+    background-color: #424242;
+    color: #fff;
+
+}
+
+.DetailView {
+    box-shadow: 0px 0px 91px -6px rgba(0,0,0,0.38);
+    margin-top: 20px;
+}
+
+.details {
+    background-color: #52515107;
+}

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import modelInstance from "../data/GalleryModel"
+import "../DetailView/DetailView.css";
 
 class DetailView extends Component {
 
@@ -44,10 +45,10 @@ class DetailView extends Component {
 
     CouchPotatoRating(movie) {
         if (movie.Metascore == "N/A") {
-            return <h4>No score</h4>
+            return <h5>No score</h5>
         }
         else {
-            return <h3>{this.state.movie.Metascore}/100</h3>
+            return <h4>{this.state.movie.Metascore}/100</h4>
         }
 
     }
@@ -68,47 +69,30 @@ class DetailView extends Component {
                 console.log(this.state.movie)
                 movie = <img src={this.state.movie.Poster} />
                 html =
-                    <table>
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <h3><strong>{this.state.movie.Title}</strong></h3>
-                                </td>
-                                <td>
-                                    <img src="/img/soffpotatis.png" className="mx-auto" style={{ width: 50, height: 'auto' }} alt="CouchPotato Logo" />
+                    <div>
+                        <div className="d-flex p-3 flex-column detail_header">
+                            <div className="d-flex flex-row justify-content-between">
+                                <h3>{this.state.movie.Title}</h3>
+                                <div className="d-flex justify-content-end">
+                                    <img src="/img/soffpotatis.png" className="mx-auto" style={{ width: 50, height: 50 }} alt="CouchPotato Logo" />
                                     {this.CouchPotatoRating(this.state.movie)}
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <h4>({this.state.movie.Year}) {this.state.movie.Genre} | {this.state.movie.Runtime}</h4>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <p>{this.state.movie.Plot}</p>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-
-                                    <h6><strong>Director:</strong> {this.state.movie.Director}<br />
-                                        <strong>Actors:</strong> {this.state.movie.Actors}<br />
-                                        <strong>Writers:</strong> {this.state.movie.Writer}
-                                    </h6>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
+                                </div>
+                            </div>
+                            <h5>({this.state.movie.Year}) {this.state.movie.Genre} | {this.state.movie.Runtime}</h5>
+                        </div>
+                        <div className="d-flex p-3 flex-column">
+                            <p>{this.state.movie.Plot}</p>
+                            <div className="d-flex flex-column details">
+                                <h6><strong>Director:</strong> {this.state.movie.Director}<br />
+                                    <strong>Actors:</strong> {this.state.movie.Actors}<br />
+                                    <strong>Writers:</strong> {this.state.movie.Writer}
+                                </h6>
+                                <div className="d-flex flex-column">
                                     <h4>
                                         Details
                                     </h4>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
                                     <h6>
-                                        <strong>Awards: </strong>{this.state.movie.Awards}<br />
+                                        <strong>Awards: </strong>{this.state.movie.Awards} <br />
                                         <strong>
                                             Ratings:</strong> {this.state.movie.Ratings.Value}
                                         <ul>{this.state.movie.Ratings.map((rating) => {
@@ -122,17 +106,13 @@ class DetailView extends Component {
                                         <strong>Language: </strong>{this.state.movie.Language} <br />
                                         <strong>Country: </strong>{this.state.movie.Country} <br />
                                         <strong>Production: </strong>{this.state.movie.Production} <br />
-                                        <strong>Website: </strong><a href={this.state.movie.Website}>{this.state.movie.Website}</a>
-                                    </h6>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
+                                        <strong>Website: </strong> <a href={this.state.movie.Website}>{this.state.movie.Website}</a>
+                                    </h6 >
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table >
                 break;
             default:
                 html = <b>Failed to load data, please try again.</b>;
@@ -140,7 +120,7 @@ class DetailView extends Component {
         }
 
         return (
-            <div className="container d-flex">
+            <div className="container d-flex DetailView">
                 <div className="d-flex flex-wrap">{movie}</div>
                 <div className="d-flex flex-wrap">{html}</div>
                 <button onClick={() => this.AddToWatchList()}>+</button>
