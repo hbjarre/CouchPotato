@@ -1,6 +1,7 @@
 import ObservableModel from "./ObservableModel";
 import API_KEY from "../data/apikey"
-
+import fire from "../config/Fire"
+import { watch } from "fs";
 
 const BASE_URL = "http://www.omdbapi.com/?apikey="+API_KEY+"&";
 
@@ -26,6 +27,54 @@ class GalleryModel extends ObservableModel {
         var movie = fetch(url).then(this.processResponse);
         return movie
 
+      }
+
+      addToWatch(movie) {
+        var db = fire.firestore();
+        
+        var user = db.collection("user_data").where("user_id", "==", fire.auth().currentUser.uid);
+
+        return user.get().then(function(query) {
+          if (query.size == 0) {
+            db.collection("user_data").add({
+              user_id: fire.auth().currentUser.uid,
+              watch_list: [movie.imdbID]
+            });
+          }
+          else {
+            query.forEach(function(doc) {
+              var watchList = doc.data().watch_list;
+
+              if (!watchList.includes(movie.imdbID)) {
+                watchList.push(movie.imdbID);
+
+                db.collection("user_data").doc(doc.id).update({
+                  watch_list: watchList
+                });
+              }
+            });
+          }
+        });
+      }
+
+      removeFromWatch(movie) {
+        var db = fire.firestore();
+        
+        var user = db.collection("user_data").where("user_id", "==", fire.auth().currentUser.uid);
+
+        return user.get().then(function(query) {
+          query.forEach(function(doc) {
+            var watchList = doc.data().watch_list;
+
+            if (watchList.includes(movie.imdbID)) {
+              watchList.splice(watchList.indexOf(movie.imdbID), 1);
+
+              db.collection("user_data").doc(doc.id).update({
+                watch_list: watchList
+              });
+            }
+          });
+        });
       }
       
       processResponse(response) {
