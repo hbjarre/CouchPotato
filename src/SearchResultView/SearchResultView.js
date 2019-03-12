@@ -23,7 +23,7 @@ class SearchResults extends Component {
     console.log(newStr)
 
     if (old != newStr){
-      modelInstance.getMovie(newStr).then(
+      modelInstance.getMovie(newStr, "").then(
         movieResponse =>{
         this.setState({
           status: "LOADED",
@@ -43,7 +43,7 @@ class SearchResults extends Component {
     }
 
     modelInstance
-      .getMovie(this.state.search)
+      .getMovie(this.state.search,"")
       .then(movieResponse => {
         this.setState({
           status: "LOADED",
