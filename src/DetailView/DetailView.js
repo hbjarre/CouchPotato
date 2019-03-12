@@ -11,10 +11,22 @@ class DetailView extends Component {
         this.state = {
             status: "LOADING",
             id: this.props.match.params.id,
-            onWishList: false
+            onWishList: false,
+            user: null,
+            showWishList: false
         }
         this.url = window.location.href.split("/")[4];
         this.AddToWatchList = this.AddToWatchList.bind(this)
+
+        fire.auth().onAuthStateChanged((user) => {
+            if (user) {
+                this.setState({user: user});
+                this.refreshWishList();
+            } else {
+                this.setState({user: null});
+            }
+          });
+          
     }
 
     componentDidMount() {
@@ -23,29 +35,12 @@ class DetailView extends Component {
         modelInstance
             .getMovie("", this.state.id)
             .then(movie => {
-                var db = fire.firestore();
-                var query = db.collection("user_data").where("user_id", "==", fire.auth().currentUser.uid)
-                                                      .where("watch_list", "array-contains", movie.imdbID);
-
-                query.get().then((doc) => {
-                    var onWishList = false;
-                    console.log(doc);
-                    console.log(doc.size);
-                    if (doc.size > 0) {
-                        onWishList = true;
-                    }
-
-                    this.setState({
-                        status: "LOADED",
-                        movie: movie,
-                        onWishList: onWishList
-                    });
-                }).catch((e) => {
-                    console.error(e);
-                    this.setState({
-                        status: "ERROR"
-                    });
+                this.setState({
+                    status: "LOADED",
+                    movie: movie
                 });
+
+                this.refreshWishList();
             })
             .catch((e) => {
                 console.error(e);
@@ -79,7 +74,34 @@ class DetailView extends Component {
         else {
             return <h4>{this.state.movie.Metascore}/100</h4>
         }
+    }
 
+    refreshWishList() {
+        if (this.state.user != null && this.state.movie != null) {
+            var db = fire.firestore();
+            var query = db.collection("user_data").where("user_id", "==", this.state.user.uid)
+                                                  .where("watch_list", "array-contains", this.state.movie.imdbID);
+
+            query.get().then((doc) => {
+                if (doc.size > 0) {
+                    this.setState({
+                        onWishList: true,
+                        showWishList: true
+                    });
+                }
+                else {
+                    this.setState({
+                        onWishList: false,
+                        showWishList: true
+                    });
+                }
+            }).catch((e) => {
+                console.error(e);
+                this.setState({
+                    status: "ERROR"
+                });
+            });
+        }
     }
 
     render() {
@@ -95,13 +117,16 @@ class DetailView extends Component {
                 html = <em>Loading...</em>;
                 break;
             case "LOADED":
-                console.log(this.state.movie)
                 movie = <img src={this.state.movie.Poster} />
                 var onWishList = this.state.onWishList;
 
                 var starIconClass = "ml-3 far fa-star fa-lg";
                 if (onWishList) {
                     starIconClass = "ml-3 fas fa-star fa-lg";
+                }
+                
+                if (!this.state.showWishList) {
+                    starIconClass = "d-none";
                 }
 
                 html =

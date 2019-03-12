@@ -14,8 +14,6 @@ class GalleryModel extends ObservableModel {
       }
 
       getMovie(search_string, i) {
-        //http://www.omdbapi.com/?apikey=bad7ef2d&t=Captain+Marvel
-        //http://www.omdbapi.com/?t=Captain+Marvel
         let params = "&type=movie&r=json&i="
         const url = `${BASE_URL}s=` + search_string + params+i;
         return fetch(url).then(this.processResponse);
@@ -85,6 +83,6 @@ class GalleryModel extends ObservableModel {
       }
 }
 
-// Export an instance of DinnerModel
+// Export an instance of GalleryModel
 const modelInstance = new GalleryModel();
 export default modelInstance;
