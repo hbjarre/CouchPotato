@@ -25,7 +25,7 @@ class GalleryModel extends ObservableModel {
       }
 
       getMovieById(i) {
-        let params = "&type=movie&r=json&i="
+        let params = "&r=json&i="
         const url = `${BASE_URL}` + params+i;
         console.log(url);
         return fetch(url).then(this.processResponse);

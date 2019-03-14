@@ -55,20 +55,7 @@ class Wish_list extends Component {
         });
     });
 
-    /*modelInstance
-      .getMovieById("tt0076759")
-      .then(movieResponse => {
-        this.setState({
-          status: "LOADED",
-          movies: movieResponse
-
-        });
-      })
-      .catch((e) => {
-        this.setState({
-          status: "ERROR"
-        });
-      });*/
+  
   }
 
   render() {
