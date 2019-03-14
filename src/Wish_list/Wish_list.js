@@ -26,35 +26,45 @@ class Wish_list extends Component {
   }
 
   componentDidMount() {
+    this.refreshWishList();
   }
 
   refreshWishList() {
-    
+    if (this.state.user != null) {
+      var db = fire.firestore();
+      var query = db.collection("user_data").where("user_id", "==", this.state.user.uid);
 
-    var db = fire.firestore();
-    var query = db.collection("user_data").where("user_id", "==", this.state.user.uid);
+      query.get().then((doc) => {
+          if (doc.size == 0) {
+            this.setState({
+              status: "LOADED"
+            });
+          }
 
-    query.get().then((doc) => {
-        doc.docs.forEach((userData) => {
-          var promiseList = [];
-          userData.data().watch_list.forEach(movieId => {
-              promiseList.push(modelInstance.getMovieById(movieId));
-          });
-          
-          Promise.all(promiseList).then(responses => {
-            console.log(responses);
-            this.setState({
-              status: "LOADED",
-              movies: responses
+          doc.docs.forEach((userData) => {
+            var promiseList = [];
+            userData.data().watch_list.forEach(movieId => {
+                promiseList.push(modelInstance.getMovieById(movieId));
             });
-          }).catch(e => {
-            this.setState({
-              status: "ERROR"
+            
+            Promise.all(promiseList).then(responses => {
+              console.log(responses);
+              this.setState({
+                status: "LOADED",
+                movies: responses
+              });
+            }).catch(e => {
+              this.setState({
+                status: "ERROR"
+              });
             });
           });
+      }).catch(e => {
+        this.setState({
+          status: "ERROR"
         });
-    });
-
+      });
+    }
   
   }
 
