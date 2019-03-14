@@ -117,6 +117,7 @@ class DetailView extends Component {
                 html = <em>Loading...</em>;
                 break;
             case "LOADED":
+                
                 movie = <img src={this.state.movie.Poster} />
                 var onWishList = this.state.onWishList;
 
@@ -174,7 +175,7 @@ class DetailView extends Component {
 
         return (
             <div className="container d-flex">
-                <div className="d-flex flex-wrap m-3">{movie}</div>
+                <div className="m-3 moviePoster">{movie}</div>
                 <div className="d-flex flex-wrap p-3">{html}</div>
             </div>
         );
