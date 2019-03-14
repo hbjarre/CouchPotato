@@ -88,9 +88,14 @@ class Wish_list extends Component {
         movies = this.state.movies;
 
         if (movies != undefined) {
-          html = movies.map((element, index) =>
-            <Link to={`/movie/${element.imdbID}`} key={index}><MovieCard movie={element} /></Link>
-          );
+          if (movies.length == 0) {
+            html = <div><em>Your wish list is empty.</em></div>;
+          }
+          else {
+            html = movies.map((element, index) =>
+              <Link to={`/movie/${element.imdbID}`} key={index}><MovieCard movie={element} /></Link>
+            );
+          }
         }
         else {
           html = <b>Could not find movies.</b>;
