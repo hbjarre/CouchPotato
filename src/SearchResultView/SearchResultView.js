@@ -102,7 +102,7 @@ class SearchResults extends Component {
       
  
         <h3>Movies</h3>
-        <div className="d-flex flex-wrap">{html}</div>
+        <div className="d-flex flex-wrap justify-content-center">{html}</div>
       </div>
     );
   }
