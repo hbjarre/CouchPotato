@@ -26,7 +26,7 @@ class DetailView extends Component {
                 this.setState({user: null});
             }
           });
-          
+
     }
 
     componentDidMount() {
@@ -117,6 +117,7 @@ class DetailView extends Component {
                 html = <em>Loading...</em>;
                 break;
             case "LOADED":
+
                 movie = <img src={this.state.movie.Poster} />
                 var onWishList = this.state.onWishList;
 
@@ -124,7 +125,7 @@ class DetailView extends Component {
                 if (onWishList) {
                     starIconClass = "ml-3 fas fa-star fa-lg";
                 }
-                
+
                 if (!this.state.showWishList) {
                     starIconClass = "d-none";
                 }
