@@ -1,33 +1,33 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import modelInstance from "../data/GalleryModel"
-import SearchView from "../SearchView/SearchView";
 import MovieCard from "../MovieCard/MovieCard";
 
 class SearchResults extends Component {
 
   constructor(props) {
-
     super(props);
     this.state = {
       status: "LOADING",
-      search: this.props.match.params.str
+      search: this.props.match.params.str,
+      type: this.props.match.params.typ
     }
     this.url = window.location.href.split("/")[4];
-    console.log(this.url);
   }
 
   componentWillReceiveProps(nextProps){
     const old = this.state.search;
+    const old_type = this.state.type;
     const newStr = nextProps.match.params.str;
-    console.log(newStr)
+    const new_type = nextProps.match.params.typ;
 
-    if (old != newStr){
-      modelInstance.getMovie(newStr, "").then(
+    if (old != newStr|| old_type!=new_type){
+      modelInstance.getMovie(newStr, "", new_type).then(
         movieResponse =>{
         this.setState({
           status: "LOADED",
             search: newStr,
+            type: new_type,
             movies: movieResponse
         })
       });
@@ -43,7 +43,7 @@ class SearchResults extends Component {
     }
 
     modelInstance
-      .getMovie(this.state.search,"")
+      .getMovie(this.state.search,"", this.state.type)
       .then(movieResponse => {
         this.setState({
           status: "LOADED",
@@ -84,7 +84,7 @@ class SearchResults extends Component {
           );
         }
         else {
-          html = <b>Could not find movies.</b>;
+          html = <b>Could not find {this.state.type}s.</b>;
         }
         break;
       default:
@@ -96,7 +96,7 @@ class SearchResults extends Component {
       <div className="container">
       
  
-        <h3>Movies</h3>
+        <h3>{this.state.type}s</h3>
         <div className="d-flex flex-wrap justify-content-center">{html}</div>
       </div>
     );
