@@ -131,11 +131,13 @@ class DetailView extends Component {
 
                 html =
                     <div className="d-flex row">
-                        <div className="d-flex align-items-center">
+                        <div className="d-flex align-items-center justify-content-between w-100">
                             <h3><strong>{this.state.movie.Title}</strong></h3>
-                            <img src="/img/soffpotatis.png" className="mx-auto" style={{ width: 50, height: 50 }} alt="CouchPotato Logo" />
-                            {this.CouchPotatoRating(this.state.movie)}
-                            <i className={starIconClass} style={{color: "#F0C900", cursor: "pointer"}} onClick={() => this.AddToWatchList()}></i>
+                            <div className="d-flex align-items-center">
+                                <img src="/img/soffpotatis.png" className="mx-auto" style={{ width: 50, height: 50 }} alt="CouchPotato Logo" />
+                                {this.CouchPotatoRating(this.state.movie)}
+                                <i className={starIconClass} style={{color: "#F0C900", cursor: "pointer"}} onClick={() => this.AddToWatchList()}></i>
+                            </div>
                         </div>
                         <div>
                         <h4>({this.state.movie.Year}) {this.state.movie.Genre} | {this.state.movie.Runtime}</h4>
@@ -173,9 +175,13 @@ class DetailView extends Component {
         }
 
         return (
-            <div className="container d-flex">
-                <div className="d-flex flex-wrap m-3">{movie}</div>
-                <div className="d-flex flex-wrap p-3">{html}</div>
+            <div className="container d-flex flex-wrap flex-lg-nowrap">
+                <div className="d-flex flex-row justify-content-between flex-grow-1">
+                    <i className="fas fa-chevron-left fa-2x mt-4 mr-4" onClick={() => this.props.history.goBack()} style={{cursor: 'pointer'}}></i>
+                    <div className="d-flex m-3">{movie}</div>
+                    <div></div>
+                </div>
+                <div className="d-flex p-3">{html}</div>
             </div>
         );
     }
