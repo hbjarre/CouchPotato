@@ -1,53 +1,59 @@
 import React, { Component } from "react";
-import { InputGroup, FormControl, Button } from 'react-bootstrap';
-import SearchResults from "../SearchResultView/SearchResultView";
+import { FormControl} from 'react-bootstrap';
 import { Link } from "react-router-dom";
 
 class SearchView extends Component {
 
   constructor(props) {
     super(props);
-    this.state = {searchValue: ''};
-    
+    this.state = {
+      searchValue: '',
+      type: 'all'
     };
 
-    handleSearchChange = (event) => {
-      this.setState({searchValue: event.target.value});
-    }
+  };
 
-    handleSubmit = (event) => {
-      //Här vill vi göra något så att searchresultview uppdateras
-      this.setState({searchValue: event.target.value});
-    }
+  handleSearchChange = (event) => {
+    this.setState({[event.target.name]: event.target.value});
+  }
+
+  handleSubmit = (event) => {
+    //Här vill vi göra något så att searchresultview uppdateras
+    //this.setState({ searchValue: event.target.value });
+    this.setState({[event.target.name]: event.target.value});
+  }
 
   render() {
     return (
-      <form className="d-flex" onSubmit={this.handleSubmit}>
+      <form className="d-flex" onSubmit={() => this.handleSubmit}>
         {//Måste vi använda angular här? Är det verkligen bra?
         }
         <FormControl
-        placeholder="Search..."
-        aria-label="Search"
-        value={this.state.searchValue}
-        onChange={this.handleSearchChange}
+          placeholder="Search..."
+          aria-label="Search"
+          value={this.state.searchValue}
+          onChange={this.handleSearchChange}
+          name="searchValue"
         />
-        <select>
-            <option defaultValue="all">All</option>
-            <option value="lime">Action</option>
-            <option value="comedy">Comedy</option>
-            <option value="horrer">Horror</option>
+        <select name="type" onChange={this.handleSearchChange} defaultValue="All">
+        <option value="all">All</option>
+          <option value="movie">Movie</option>
+          <option value="series">Series</option>
+          <option value="episode">Episode</option>
         </select>
         <Link
           to={{
-            pathname: "/search/" + this.state.searchValue.replace(" ", "+"),
+            pathname: "/search/title=" + this.state.searchValue.replace(" ", "+") + "&type=" + this.state.type,
             state: {
-              search: this.state.searchValue
+              search: this.state.searchValue,
+              type: this.state.type
             }
           }}
         >
-        <button type="submit">Search</button>
+          <button type="submit">Search</button>
         </Link>
       </form>
+
     );
   }
 }

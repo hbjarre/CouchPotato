@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import modelInstance from "../data/GalleryModel"
-import SearchView from "../SearchView/SearchView";
 import MovieCard from "../MovieCard/MovieCard";
 
 class SearchResults extends Component {
@@ -9,29 +8,35 @@ class SearchResults extends Component {
   constructor(props) {
 
     super(props);
+    console.log("type: ",this.props.match.params.typ)
+    console.log("title: ",this.props.match.params.str)
     this.state = {
       status: "LOADING",
-      search: this.props.match.params.str
+      search: this.props.match.params.str,
+      type: this.props.match.params.typ
     }
     this.url = window.location.href.split("/")[4];
-    console.log(this.url);
   }
 
   componentWillReceiveProps(nextProps){
     const old = this.state.search;
+    const old_type = this.state.type;
     const newStr = nextProps.match.params.str;
-    console.log(newStr)
+    const new_type = nextProps.match.params.typ;
 
-    if (old != newStr){
-      modelInstance.getMovie(newStr, "").then(
+    if (old != newStr|| old_type!=new_type){
+      modelInstance.getMovie(newStr, "", new_type).then(
         movieResponse =>{
         this.setState({
           status: "LOADED",
             search: newStr,
+            type: new_type,
             movies: movieResponse
         })
       });
     }
+    console.log("type: ",this.state.search)
+    console.log("title: ",this.state.type)
   }
 
   componentDidMount() {
@@ -43,7 +48,7 @@ class SearchResults extends Component {
     }
 
     modelInstance
-      .getMovie(this.state.search,"")
+      .getMovie(this.state.search,"", this.state.type)
       .then(movieResponse => {
         this.setState({
           status: "LOADED",

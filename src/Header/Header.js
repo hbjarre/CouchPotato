@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import SearchView from "../SearchView/SearchView";
-import { InputGroup, Button, FormControl, DropdownButton, Dropdown, NavDropdown } from 'react-bootstrap';
+import { DropdownButton, Dropdown } from 'react-bootstrap';
 import fire from "../config/Fire";
 
 class Header extends Component {
