@@ -6,10 +6,7 @@ import MovieCard from "../MovieCard/MovieCard";
 class SearchResults extends Component {
 
   constructor(props) {
-
     super(props);
-    console.log("type: ",this.props.match.params.typ)
-    console.log("title: ",this.props.match.params.str)
     this.state = {
       status: "LOADING",
       search: this.props.match.params.str,
@@ -35,8 +32,6 @@ class SearchResults extends Component {
         })
       });
     }
-    console.log("type: ",this.state.search)
-    console.log("title: ",this.state.type)
   }
 
   componentDidMount() {
@@ -89,7 +84,7 @@ class SearchResults extends Component {
           );
         }
         else {
-          html = <b>Could not find movies.</b>;
+          html = <b>Could not find {this.state.type}s.</b>;
         }
         break;
       default:
@@ -101,7 +96,7 @@ class SearchResults extends Component {
       <div className="container">
       
  
-        <h3>Movies</h3>
+        <h3>{this.state.type}s</h3>
         <div className="d-flex flex-wrap justify-content-center">{html}</div>
       </div>
     );
