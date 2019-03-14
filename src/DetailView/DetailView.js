@@ -179,7 +179,7 @@ class DetailView extends Component {
             <div className="container d-flex flex-wrap flex-lg-nowrap">
                 <div className="d-flex flex-row justify-content-between flex-grow-1">
                     <i className="fas fa-chevron-left fa-2x mt-4 mr-4" onClick={() => this.props.history.goBack()} style={{cursor: 'pointer'}}></i>
-                    <div className="d-flex m-3">{movie}</div>
+                    <div className="m-3 moviePoster">{movie}</div>
                     <div></div>
                 </div>
                 <div className="d-flex p-3">{html}</div>
