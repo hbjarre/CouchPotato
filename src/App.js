@@ -44,7 +44,7 @@ class App extends Component {
             <Header />
             <Route exact path="/" component={Welcome} />
             <Route exact path="/search/title=:str&amp;type=:typ" component={SearchResults} />
-            <Route path="/search/:str/:id" component={DetailView} />
+            <Route path="/movie/:id" component={DetailView} />
             <Route path="/settings" render={() => <Settings />} />
             <Route path="/wish_list" render={() => <Wish_list />} />
             <Route path="/my_rated_list" render={() => <Rated_list />} />
