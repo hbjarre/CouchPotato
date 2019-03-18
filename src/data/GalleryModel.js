@@ -13,11 +13,11 @@ class GalleryModel extends ObservableModel {
         
       }
 
-      getMovie(search_string, i, type) {
+      getMovie(search_string, i, type, page) {
         //http://www.omdbapi.com/?apikey=bad7ef2d&t=Captain+Marvel
         //http://www.omdbapi.com/?t=Captain+Marvel
         if (type != "all"){
-        const url = `${BASE_URL}s=${search_string}&type=${type}&r=json&i=${i}`;
+        const url = `${BASE_URL}s=${search_string}&type=${type}&r=json&i=${i}&page=${page}`;
         return fetch(url).then(this.processResponse)}
         else {
         const url = `${BASE_URL}s=${search_string}&r=json&i=${i}`;

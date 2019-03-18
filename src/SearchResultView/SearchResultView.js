@@ -10,9 +10,12 @@ class SearchResults extends Component {
     this.state = {
       status: "LOADING",
       search: this.props.match.params.str,
-      type: this.props.match.params.typ
+      type: this.props.match.params.typ,
+      page: 1
     }
     this.url = window.location.href.split("/")[4];
+    this.NextPage = this.NextPage.bind(this);
+    this.BackPage = this.BackPage.bind(this);
   }
 
   componentWillReceiveProps(nextProps){
@@ -22,7 +25,7 @@ class SearchResults extends Component {
     const new_type = nextProps.match.params.typ;
 
     if (old != newStr|| old_type!=new_type){
-      modelInstance.getMovie(newStr, "", new_type).then(
+      modelInstance.getMovie(newStr, "", new_type, this.state.page).then(
         movieResponse =>{
         this.setState({
           status: "LOADED",
@@ -32,6 +35,32 @@ class SearchResults extends Component {
         })
       });
     }
+  }
+
+  NextPage(){
+    let page_nr = (this.state.page+1);
+    console.log(page_nr)
+    modelInstance.getMovie(this.state.search, "", this.state.type, page_nr).then(
+      movieResponse =>{
+      this.setState({
+        status: "LOADED",
+          page: page_nr,
+          movies: movieResponse
+      })
+    });
+  }
+
+  BackPage(){
+    let page_nr = (this.state.page-1);
+    console.log(page_nr)
+    modelInstance.getMovie(this.state.search, "", this.state.type, page_nr).then(
+      movieResponse =>{
+      this.setState({
+        status: "LOADED",
+          page: page_nr,
+          movies: movieResponse
+      })
+    });
   }
 
   componentDidMount() {
@@ -77,12 +106,14 @@ class SearchResults extends Component {
       case "LOADED":
       
         movies = this.state.movies;
-
+        var back_btn = <button onClick={this.BackPage}>back</button>
+        var next_btn = <button onClick={this.NextPage}>next</button>
         if (movies.Search != undefined) {
           html = movies.Search.map((element, index) =>
             <Link to={`${this.url}/${element.imdbID}/${element.Title}`} key={index}><MovieCard movie={element} /></Link>
           );
         }
+
         else {
           html = <b>Could not find {this.state.type}s.</b>;
         }
@@ -95,9 +126,10 @@ class SearchResults extends Component {
     return (
       <div className="container">
       
- 
+        {back_btn}{next_btn}
         <h3>{this.state.type}s</h3>
         <div className="d-flex flex-wrap justify-content-center">{html}</div>
+
       </div>
     );
   }
