@@ -1,6 +1,6 @@
 # CouchPotato
 <strong>A website for movies and series. In the app you can add a watchlist and more!</strong>
-You can see a demo of our website [here](https://couchpotato-ca085.firebaseapp.com/)
+You can see a demo of our website [here](https://couchpotato-ca085.firebaseapp.com/).
 
 To build and deploy website:
 ```
@@ -38,13 +38,13 @@ firebase deploy
 
 ### Our project file structure (short description/purpose of each file)
 
-<strong>favicon.ico</strong>
+- **favicon.ico**
 	#This is an image of a potato, which is our logo. The purpose is that favicon is used as the logo that is shown as image icon, where the title text in the header is shown.
 
-<strong>film-roll.png</strong>
+- **film-roll.png**
 This is an image of a filmroll that is shown when no picture was found from the API call(though it doesn’t work at the moment).
 
-<strong>soffpotatis.png</strong>
+- **soffpotatis.png**
 #This is an image of our potato logo and the purpose is to show this in the header and more.
    
 <strong>index.html</strong>
