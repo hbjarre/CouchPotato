@@ -17,6 +17,7 @@ The app uses React as framework and :fire:[firebase](https://firebase.google.com
 
 
 **To build and deploy website:**
+
 In the console do following. Go to the local directory of the app and run:
 ```
 npm install
