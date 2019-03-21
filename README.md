@@ -2,6 +2,9 @@
 <strong>A website for movies and series. In the app you can add a watchlist and more!</strong>
 You can see a demo of our website [here](https://couchpotato-ca085.firebaseapp.com/).
 
+![GitHub Logo](/public/img/soffpotatis.png)
+Format: ![Alt Text](url)
+
 To build and deploy website:
 ```
 npm run build
@@ -10,7 +13,7 @@ firebase deploy
 
 <strong>This file contains following titles and information:</strong>
 
-* (Short description of our project)[#short-description-of-our-project]
+* Short description of our project
 
 * What we have done
 
