@@ -1,6 +1,6 @@
 # CouchPotato
 **A website for movies and series. In the app you can add a watchlist and more!**
-You can see a demo of our website [here](https://couchpotato-ca085.firebaseapp.com/).
+>You can see a demo of our website [here](https://couchpotato-ca085.firebaseapp.com/).
 
 ### Short description of our project
 With our website you can look up information about different movies and series! Features include:
