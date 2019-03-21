@@ -1,8 +1,7 @@
 # CouchPotato
 <strong>A website for movies and series. In the app you can add a watchlist and more!</strong>
+
 You can see a demo of our website [here](https://couchpotato-ca085.firebaseapp.com/).
-
-
 
 To build and deploy website:
 ```
