@@ -12,8 +12,8 @@ The app uses React as framework and [firebase](https://firebase.google.com/) for
 ### To start and try the app
 
 > - Go to the projects [website](https://couchpotato-ca085.firebaseapp.com/) or run the code on your computer.
-- Start by creating a user by clicking "signup". You can use a fake email adress if you want.
-- From here on you can use this user whenever you are logged out or from any computer you want.
+> - Start by creating a user by clicking "signup". You can use a fake email adress if you want.
+> - From here on you can use this user whenever you are logged out or from any computer you want.
 
 
 **To build and deploy website:**
