@@ -10,8 +10,8 @@ With our website you can look up information about different movies and series! 
 The app uses React as framework and [firebase](https://firebase.google.com/) for our backend. The API that we've used is [OMDb API](http://www.omdbapi.com/).
 
 ### To start and try the app
->hello
-- Go to the projects [website](https://couchpotato-ca085.firebaseapp.com/) or run the code on your computer.
+
+> - Go to the projects [website](https://couchpotato-ca085.firebaseapp.com/) or run the code on your computer.
 - Start by creating a user by clicking "signup". You can use a fake email adress if you want.
 - From here on you can use this user whenever you are logged out or from any computer you want.
 
