@@ -1,5 +1,5 @@
 # CouchPotato
-A website for movies and series. In the app you can add a watchlist and more!
+<strong>A website for movies and series. In the app you can add a watchlist and more!</strong>
 
 
 To build and deploy website:
@@ -7,15 +7,16 @@ npm run build
 firebase deploy
 
 
-* Short description of your project
+* Short description of our project
 
-* What you have done
+* What we have done
 
-* What you still plan to do
+* What we plan to do
 
-* Your project file structure (short description/purpose of each file)
+* Our project file structure (short description/purpose of each file)
 
-<strong>Index.css</strong>
+
+# Our project file structure (short description/purpose of each file)
 
 Node_modules
 
