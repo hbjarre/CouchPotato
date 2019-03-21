@@ -1,5 +1,4 @@
 # CouchPotato
-<img src=/public/img/soffpotatis.png width="60" height="60" />
 <strong>A website for movies and series. In the app you can add a watchlist and more!</strong>
 You can see a demo of our website [here](https://couchpotato-ca085.firebaseapp.com/).
 
