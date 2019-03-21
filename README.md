@@ -39,7 +39,8 @@ firebase deploy
 ### Our project file structure (short description/purpose of each file)
 
 - **favicon.ico**
-	#This is an image of a potato, which is our logo. The purpose is that favicon is used as the logo that is shown as image icon, where the title text in the header is shown.
+	
+    This is an image of a potato, which is our logo. The purpose is that favicon is used as the logo that is shown as image icon, where the title text in the header is shown.
 
 - **film-roll.png**
 This is an image of a filmroll that is shown when no picture was found from the API call(though it doesn’t work at the moment).
