@@ -82,10 +82,13 @@ This is an image of a filmroll that is shown when no picture was found from the 
 
 <strong>Index.js</strong>
 	#renders app in root
+
 <strong>Index.css</strong>
 	#Index stylesheet
+
 <strong>App.js</strong>
 	#Runs the main application. Contains login authentication and account creation.
+    
 <strong>App.css</strong>
 	#Main application css file. Idea is to keep most of the custom css here.
 
