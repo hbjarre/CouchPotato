@@ -18,17 +18,17 @@ firebase deploy
 * Our project file structure (short description/purpose of each file)
 
 
-##Short description of our project
+## Short description of our project
 
 
-##What we have done
+## What we have done
 
 
-##What we plan to do
+## What we plan to do
 
 
 
-##Our project file structure (short description/purpose of each file)
+## Our project file structure (short description/purpose of each file)
 
 <strong>favicon.ico</strong>
 	#This is an image of a potato, which is our logo. The purpose is that favicon is used as the logo that is shown as image icon, where the title text in the header is shown.
