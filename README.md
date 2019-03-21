@@ -9,17 +9,6 @@ npm run build
 firebase deploy
 ```
 
-**This file contains following titles and information:**
-
-* Short description of our project
-
-* What we have done
-
-* What we plan to do
-
-* Our project file structure (short description/purpose of each file)
-
-
 ### Short description of our project
 
 ### What we have done
