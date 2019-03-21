@@ -3,7 +3,7 @@ import API_KEY from "../data/apikey"
 import fire from "../config/Fire"
 import { watch } from "fs";
 
-const BASE_URL = "http://www.omdbapi.com/?apikey="+API_KEY+"&";
+const BASE_URL = "https://www.omdbapi.com/?apikey="+API_KEY+"&";
 
 
 class GalleryModel extends ObservableModel {
@@ -14,8 +14,8 @@ class GalleryModel extends ObservableModel {
       }
 
       getMovie(search_string, i, type, page) {
-        //http://www.omdbapi.com/?apikey=bad7ef2d&t=Captain+Marvel
-        //http://www.omdbapi.com/?t=Captain+Marvel
+        //https://www.omdbapi.com/?apikey=bad7ef2d&t=Captain+Marvel
+        //https://www.omdbapi.com/?t=Captain+Marvel
         if (type != "all"){
         const url = `${BASE_URL}s=${search_string}&type=${type}&r=json&i=${i}&page=${page}`;
         return fetch(url).then(this.processResponse)}
