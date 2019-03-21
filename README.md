@@ -1,6 +1,5 @@
 # CouchPotato
-<strong>A website for movies and series. In the app you can add a watchlist and more!</strong>
-
+**A website for movies and series. In the app you can add a watchlist and more!**
 You can see a demo of our website [here](https://couchpotato-ca085.firebaseapp.com/).
 
 ### Short description of our project
@@ -10,11 +9,12 @@ With our website you can look up information about different movies and series! 
 
 The app uses React as framework and [firebase](https://firebase.google.com/) for our backend. The API that we've used is [OMDb API](http://www.omdbapi.com/).
 
-#### To start and try the app
-
+### To start and try the app
+```
 * Go to the projects [website](https://couchpotato-ca085.firebaseapp.com/) or run the code on your computer.
 * Start by creating a user by clicking "signup". You can use a fake email adress if you want.
 * From here on you can use this user whenever you are logged out or from any computer you want.
+```
 
 **To build and deploy website:**
 In the console do following. Go to the local directory of the app and run:
