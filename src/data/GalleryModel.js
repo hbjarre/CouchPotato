@@ -3,7 +3,7 @@ import API_KEY from "../data/apikey"
 import fire from "../config/Fire"
 import { watch } from "fs";
 
-const BASE_URL = "http://www.omdbapi.com/?apikey="+API_KEY+"&";
+const BASE_URL = "https://www.omdbapi.com/?apikey="+API_KEY+"&";
 
 
 class GalleryModel extends ObservableModel {
