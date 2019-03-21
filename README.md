@@ -15,7 +15,7 @@ firebase deploy
 
 * Your project file structure (short description/purpose of each file)
 
-<strong>Index.css<strong>
+<strong>Index.css</strong>
 
 Node_modules
 
