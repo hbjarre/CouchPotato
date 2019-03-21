@@ -35,6 +35,7 @@ firebase deploy
 
 ## What we still plan to do
 * A start page
+* Rating function that saves a users ratings in a Firebase database
 * More interactions
 * Finishing touches
 
