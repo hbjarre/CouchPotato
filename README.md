@@ -4,7 +4,7 @@ You can see a demo of our website [here](https://couchpotato-ca085.firebaseapp.c
 
 ### Short description of our project
 With our website you can look up information about different movies and series! Features include:
-* Wish list, where you can add movies or series that you want to watch later
+* Wish list, where you can add movies or series(by clicking :star:) that you want to watch later
 * My rated list, where you can see which movies and series you have rated
 
 The app uses React as framework and :fire:[firebase](https://firebase.google.com/) for our backend. The API that we've used is [OMDb API](http://www.omdbapi.com/).
