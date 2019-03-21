@@ -1,4 +1,4 @@
-# CouchPotato
+# CouchPotato (/public/img/soffpotatis.png)
 <strong>A website for movies and series. In the app you can add a watchlist and more!</strong>
 You can see a demo of our website [here](https://couchpotato-ca085.firebaseapp.com/).
 
@@ -21,7 +21,7 @@ firebase deploy
 
 ### Short description of our project
 
-### What you have done
+### What we have done
 * Model connected to the OMDb API
 * Login with Firebase
 * Header with a searchbar and menu
@@ -29,7 +29,7 @@ firebase deploy
 * Detail view for individual movies/series/episodes
 * Wish list function that saves a users wish list in a Firebase database
 
-### What you still plan to do
+### What we still plan to do
 * A start page
 * More interactions
 * Finishing touches
