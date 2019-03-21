@@ -3,13 +3,13 @@
 
 You can see a demo of our website [here](https://couchpotato-ca085.firebaseapp.com/).
 
-To build and deploy website:
+**To build and deploy website:**
 ```
 npm run build
 firebase deploy
 ```
 
-<strong>This file contains following titles and information:</strong>
+**This file contains following titles and information:**
 
 * Short description of our project
 
