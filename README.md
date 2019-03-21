@@ -1,11 +1,11 @@
 # CouchPotato
-<strong>A website for movies and series. In the app you can add a watchlist and more!</strong>
+<strong>A website for movies and series. In the app you can add a watchlist and more!
 
-#
+Demo: [insert link here]</strong>
+
 To build and deploy website:
 npm run build
 firebase deploy
-#
 
 <strong>This file contains following titles and information:</strong>
 
@@ -17,18 +17,18 @@ firebase deploy
 
 * Our project file structure (short description/purpose of each file)
 
-#
-<h2> Short description of our project</h2>
 
-#
-<h2> What we have done</h2>
-
-#
-<h2> What we plan to do</h2>
+###Short description of our project
 
 
-#
-<h2> Our project file structure (short description/purpose of each file)</h2>
+###What we have done
+
+
+###What we plan to do
+
+
+
+###Our project file structure (short description/purpose of each file)
 
 <strong>favicon.ico</strong>
 	#This is an image of a potato, which is our logo. The purpose is that favicon is used as the logo that is shown as image icon, where the title text in the header is shown.
