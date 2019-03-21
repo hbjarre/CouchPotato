@@ -22,11 +22,18 @@ firebase deploy
 
 ### Short description of our project
 
+### What you have done
+* Model connected to the OMDb API
+* Login with Firebase
+* Header with a searchbar and menu
+* Search function with a filter for showing movies/series/episodes
+* Detail view for individual movies/series/episodes
+* Wish list function that saves a users wish list in a Firebase database
 
-### What we have done
-
-
-### What we plan to do
+### What you still plan to do
+* A start page
+* More interactions
+* Finishing touches
 
 
 
