@@ -7,7 +7,7 @@ With our website you can look up information about different movies and series! 
 * Wish list, where you can add movies or series that you want to watch later
 * My rated list, where you can see which movies and series you have rated
 
-The app uses React as framework and [firebase](https://firebase.google.com/) for our backend. The API that we've used is [OMDb API](http://www.omdbapi.com/).
+The app uses React as framework and :fire:[firebase](https://firebase.google.com/) for our backend. The API that we've used is [OMDb API](http://www.omdbapi.com/).
 
 ### To start and try the app
 
