@@ -50,7 +50,7 @@ firebase deploy
 	#Here we have all our functions that make api calls and changes to our database in firebase.
 
 - **ObservableModel.js**
-	#Here we have our observer functions. Our GalleryModel is later extended with this file. We never notify our observers so this file may be completely useless? If you have any comments about whether we should use this or not, please tell us :)
+	#Here we have our observer functions. Our GalleryModel is later extended with this file. We never notify our observers so this file may be completely useless? If you have any comments about whether we should use this or not, please tell us :blush:
 
 - **DetailView.css**
 	#Detail view stylesheet.
