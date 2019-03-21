@@ -7,7 +7,7 @@ To build and deploy website:
 ```
 npm run build
 firebase deploy
-``
+```
 
 <strong>This file contains following titles and information:</strong>
 
