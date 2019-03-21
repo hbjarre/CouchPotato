@@ -6,6 +6,7 @@ To build and deploy website:
 npm run build
 firebase deploy
 
+<strong>This file contains following titles and information:</strong>
 
 * Short description of our project
 
@@ -16,7 +17,7 @@ firebase deploy
 * Our project file structure (short description/purpose of each file)
 
 
-# Our project file structure (short description/purpose of each file)
+<h3> Our project file structure (short description/purpose of each file)</h3>
 
 Node_modules
 
