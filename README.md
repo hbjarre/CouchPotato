@@ -3,13 +3,24 @@
 
 You can see a demo of our website [here](https://couchpotato-ca085.firebaseapp.com/).
 
+### Short description of our project
+This is an app where users can, in the header, search for movies, series and episodes and by clicking on a searched item, the user can see it in a detail view. In the detail view the user will get more information about the movie/series/episode and can even add it to their wishlist by clicking on the star. Later on we want to add a feature where the user also can rate the movie/series/episode. In the header the user also can use the navbar to go to their wishlist page, where all the movies with a star will be shown. The user can also go to their rating page, where rated movies is shown in the order(highest rating to lowest rating). More features are also available in the navbar.
+
+The app uses React as framework and [firebase](https://firebase.google.com/) for our backend. The API that we've used is [OMDb API](http://www.omdbapi.com/).
+
+#### To start and try the app
+
 **To build and deploy website:**
+In the console do following. Go to the local directory of the app and run:
 ```
+npm install
 npm run build
 firebase deploy
 ```
-
-### Short description of our project
+**To try the app**
+* Go to the projects [website](https://couchpotato-ca085.firebaseapp.com/) or run the code on your computer.
+* Start by creating a user by clicking "signup". You can use a fake email adress if you want.
+* From here on you can use this user whenever you are logged out or from any computer you want.
 
 ### What we have done
 * Model connected to the OMDb API
