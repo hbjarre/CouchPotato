@@ -39,19 +39,19 @@ firebase deploy
 ### Our project file structure (short description/purpose of each file)
 
 - **favicon.ico**
-This is an image of a potato, which is our logo. The purpose is that favicon is used as the logo that is shown as image icon, where the title text in the header is shown.
+    #An image of a potato, which is our logo. The purpose is that favicon is used as the logo that is shown as image icon, where the title text in the header is shown.
 
 - **film-roll.png**
-This is an image of a filmroll that is shown when no picture was found from the API call(though it doesn’t work at the moment).
+    #An image of a filmroll that is shown when no picture was found from the API call(though it doesn’t work at the moment).
 
 - **soffpotatis.png**
-This is an image of our potato logo and the purpose is to show this in the header and more.
+    #An image of our potato logo and the purpose is to show this in the header and more.
    
 - **index.html**
-This our html file that contains our root tag which we later fill with tags from our js files.
+    #This our html file that contains our root tag which we later fill with tags from our js files.
 
 - **Fire.js**
-This file contains our setup with our firebase project. The purpose of this file is that in all our js files where we need to have a connection with firebase we can import this file instead of repeating code.
+    #Connection to firebase. This file contains our setup with our firebase project. The purpose of this file is that in all our js files where we need to have a connection with firebase we can import this file instead of repeating code.
 
 - **apikey.js**
 	#Here we have our API key which is gitignored and later used in our models.
