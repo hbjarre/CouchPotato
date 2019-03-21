@@ -18,61 +18,62 @@ class SearchResults extends Component {
     this.BackPage = this.BackPage.bind(this);
   }
 
-  componentWillReceiveProps(nextProps){
+  componentWillReceiveProps(nextProps) {
     const old = this.state.search;
     const old_type = this.state.type;
     const newStr = nextProps.match.params.str;
     const new_type = nextProps.match.params.typ;
 
-    if (old != newStr|| old_type!=new_type){
+    if (old != newStr || old_type != new_type) {
       modelInstance.getMovie(newStr, "", new_type, this.state.page).then(
-        movieResponse =>{
-        this.setState({
-          status: "LOADED",
+        movieResponse => {
+          this.setState({
+            status: "LOADED",
             search: newStr,
             type: new_type,
             movies: movieResponse
-        })
-      });
+          })
+        });
     }
   }
 
-  NextPage(){
-    let page_nr = (this.state.page+1);
+  NextPage() {
+    document.getElementById("back_btn").disabled = false;
+    let page_nr = (this.state.page + 1);
     console.log(page_nr)
     modelInstance.getMovie(this.state.search, "", this.state.type, page_nr).then(
-      movieResponse =>{
-      this.setState({
-        status: "LOADED",
+      movieResponse => {
+        this.setState({
+          status: "LOADED",
           page: page_nr,
           movies: movieResponse
+        });
       })
-    });
   }
 
-  BackPage(){
-    let page_nr = (this.state.page-1);
+  BackPage() {
+    let page_nr = (this.state.page - 1);
     console.log(page_nr)
     modelInstance.getMovie(this.state.search, "", this.state.type, page_nr).then(
-      movieResponse =>{
-      this.setState({
-        status: "LOADED",
+      movieResponse => {
+        this.setState({
+          status: "LOADED",
           page: page_nr,
           movies: movieResponse
+        });
       })
-    });
   }
 
   componentDidMount() {
     this.search = this.props.search;
-    
+
 
     if (this.state.search == undefined) {
       this.state.search = "Avatar";
     }
 
     modelInstance
-      .getMovie(this.state.search,"", this.state.type)
+      .getMovie(this.state.search, "", this.state.type)
       .then(movieResponse => {
         this.setState({
           status: "LOADED",
@@ -88,14 +89,12 @@ class SearchResults extends Component {
   }
 
   componentDidUnMount() {
-    
+
   }
 
   render() {
     let movies = null;
     let html = null;
-    
-
     // depending on the state we either generate
     // useful message to the user or show the list
     // of returned movies
@@ -104,9 +103,9 @@ class SearchResults extends Component {
         html = <em>Loading...</em>;
         break;
       case "LOADED":
-      
+
         movies = this.state.movies;
-        var back_btn = <button onClick={this.BackPage}>back</button>
+        var back_btn = <button onClick={this.BackPage} id="back_btn">back</button>
         var next_btn = <button onClick={this.NextPage}>next</button>
         if (movies.Search != undefined) {
           html = movies.Search.map((element, index) =>
@@ -125,11 +124,9 @@ class SearchResults extends Component {
 
     return (
       <div className="container">
-      
-        {back_btn}{next_btn}
         <h3>{this.state.type}s</h3>
         <div className="d-flex flex-wrap justify-content-center">{html}</div>
-
+        {back_btn}{next_btn}
       </div>
     );
   }
