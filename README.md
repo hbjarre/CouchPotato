@@ -2,7 +2,7 @@
 <strong>A website for movies and series. In the app you can add a watchlist and more!</strong>
 You can see a demo of our website [here](https://couchpotato-ca085.firebaseapp.com/).
 
-<img src=/public/img/soffpotatis.png width="16" height="16" />
+<img src=/public/img/soffpotatis.png width="40" height="40" />
 
 To build and deploy website:
 ```
