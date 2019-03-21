@@ -3,7 +3,6 @@
 You can see a demo of our website [here](https://couchpotato-ca085.firebaseapp.com/).
 
 ![GitHub Logo](/public/img/soffpotatis.png)
-Format: ![Alt Text](url)
 
 To build and deploy website:
 ```
