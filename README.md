@@ -2,7 +2,7 @@
 **A website for movies and series. In the app you can add a watchlist and more!**
 >You can see a demo of our website [here](https://couchpotato-ca085.firebaseapp.com/).
 
-### Short description of our project
+## Short description of our project
 With our website you can look up information about different movies and series! Features include:
 * Wish list, where you can add movies or series(by clicking :star:) that you want to watch later
 * My rated list, where you can see which movies and series you have rated
@@ -24,7 +24,7 @@ npm run build
 firebase deploy
 ```
 
-### What we have done
+## What we have done
 * Model connected to the OMDb API
 * Login with Firebase
 * Header with a searchbar and menu
@@ -32,14 +32,14 @@ firebase deploy
 * Detail view for individual movies/series/episodes
 * Wish list function that saves a users wish list in a Firebase database
 
-### What we still plan to do
+## What we still plan to do
 * A start page
 * More interactions
 * Finishing touches
 
 
 
-### Our project file structure (short description/purpose of each file)
+## Our project file structure (short description/purpose of each file)
 
 - **favicon.ico**
     #An image of a potato, which is our logo. The purpose is that favicon is used as the logo that is shown as image icon, where the title text in the header is shown.
