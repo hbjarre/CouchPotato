@@ -10,6 +10,9 @@ firebase deploy
 ```
 
 ### Short description of our project
+With our website you can look up information about different movies and series! Features include:
+* Wish list, where you can add movies or series that you want to watch later
+* My rated list, where you can see which movies and series you have rated
 
 ### What we have done
 * Model connected to the OMDb API
