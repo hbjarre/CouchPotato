@@ -7,7 +7,19 @@ import fire from "../config/Fire";
 class Header extends Component {
     constructor(props) {
         super(props);
+        console.log(this.props.user)
         this.logout = this.logout.bind(this);
+        this.state = {
+            user: false
+        }
+
+        fire.auth().onAuthStateChanged((user) => {
+            if (user) {
+                this.setState({ user: true });
+            } else {
+                this.setState({ user: false });
+            }
+        });
     }
 
     logout() {
@@ -15,6 +27,29 @@ class Header extends Component {
     }
 
     render() {
+        var login_info =
+            <DropdownButton
+                title="User"
+                id="input-group-dropdown-1"
+                className="mx-1"
+            >
+                <Dropdown.Item as={Link} to="/wish_list">Wish list</Dropdown.Item>
+                <Dropdown.Item as={Link} to="/my_rated_list">My rated list</Dropdown.Item>
+                <Dropdown.Item as={Link} to="/settings">Settings</Dropdown.Item>
+                <Dropdown.Divider />
+                <Dropdown.Item as={Link} to="/" onClick={this.logout}>Logout</Dropdown.Item>
+            </DropdownButton>;
+
+        if (!this.state.user) {
+            login_info =
+                <DropdownButton
+                    title="User"
+                    id="input-group-dropdown-1"
+                    className="mx-1"
+                >
+                    <Dropdown.Item as={Link} to="/login">Login</Dropdown.Item>
+                </DropdownButton>
+        }
         return (
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
                 <div className="container">
@@ -31,17 +66,7 @@ class Header extends Component {
                         <div className="d-flex w-100 justify-content-between">
                             <div></div>
                             <SearchView />
-                            <DropdownButton
-                                title="User"
-                                id="input-group-dropdown-1"
-                                className="mx-1"
-                            >
-                                <Dropdown.Item as={Link} to="/wish_list">Wish list</Dropdown.Item>
-                                <Dropdown.Item as={Link} to="/my_rated_list">My rated list</Dropdown.Item>
-                                <Dropdown.Item as={Link} to="/settings">Settings</Dropdown.Item>
-                                <Dropdown.Divider />
-                                <Dropdown.Item href="#" onClick={this.logout}>Logout</Dropdown.Item>
-                            </DropdownButton>
+                            {login_info}
                         </div>
                     </div>
                 </div>

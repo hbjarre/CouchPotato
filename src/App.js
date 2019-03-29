@@ -39,24 +39,19 @@ class App extends Component {
     return (
 
       <div className="App">
-
+        <Header />
+        <Route exact path="/" component={Welcome} />
+        <Route exact path="/search/title=:str&amp;type=:typ" component={SearchResults} />
+        <Route path="/movie/:id" component={DetailView} />
         {this.state.user ? (
           <div>
-            <Header />
-            <Route exact path="/" component={Welcome} />
-            <Route exact path="/search/title=:str&amp;type=:typ" component={SearchResults} />
-            <Route path="/movie/:id" component={DetailView} />
             <Route path="/settings" render={() => <Settings />} />
             <Route path="/wish_list" render={() => <Wish_list />} />
             <Route path="/my_rated_list" render={() => <Rated_list />} />
           </div>
         ) : (
             <div>
-              <Header />
-              <Route exact path="/" component={Welcome} />
-              <Route exact path="/search/title=:str&amp;type=:typ" component={SearchResults} />
-              <Route path="/movie/:id" component={DetailView} />
-              <Login/>
+              <Route path="/login" component={Login} />
             </div>
           )}
       </div>
