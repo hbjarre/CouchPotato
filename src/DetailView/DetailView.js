@@ -33,7 +33,7 @@ class DetailView extends Component {
         // when data is retrieved we update the state
         // this will cause the component to re-render
         modelInstance
-            .getMovie("", this.state.id)
+            .getMovieById(this.state.id)
             .then(movie => {
                 this.setState({
                     status: "LOADED",
@@ -80,7 +80,7 @@ class DetailView extends Component {
         if (this.state.user != null && this.state.movie != null) {
             var db = fire.firestore();
             var query = db.collection("user_data").where("user_id", "==", this.state.user.uid)
-                                                  .where("watch_list", "array-contains", this.state.movie.imdbID);
+                                                  .where("watch_list", "array-contains", this.state.movie.imdb_id);
 
             query.get().then((doc) => {
                 if (doc.size > 0) {
@@ -118,7 +118,7 @@ class DetailView extends Component {
                 break;
             case "LOADED":
 
-                movie = <img src={this.state.movie.Poster} />
+                movie = <img src={"http://image.tmdb.org/t/p/w342/" + this.state.movie.poster_path} />
                 var onWishList = this.state.onWishList;
 
                 var starIconClass = "ml-3 far fa-star fa-lg";
@@ -131,9 +131,9 @@ class DetailView extends Component {
                 }
 
                 html =
-                    <div className="d-flex row">
+                    <div className="">
                         <div className="d-flex align-items-center justify-content-between w-100">
-                            <h3><strong>{this.state.movie.Title}</strong></h3>
+                            <h3><strong>{this.state.movie.original_title}</strong></h3>
                             <div className="d-flex align-items-center">
                                 <img src="/img/soffpotatis.png" className="mx-auto" style={{ width: 50, height: 50 }} alt="CouchPotato Logo" />
                                 {this.CouchPotatoRating(this.state.movie)}
@@ -141,31 +141,14 @@ class DetailView extends Component {
                             </div>
                         </div>
                         <div>
-                        <h4>({this.state.movie.Year}) {this.state.movie.Genre} | {this.state.movie.Runtime}</h4>
-                        <p>{this.state.movie.Plot}</p>
-                        <h6><strong>Director:</strong> {this.state.movie.Director}<br />
-                            <strong>Actors:</strong> {this.state.movie.Actors}<br />
-                            <strong>Writers:</strong> {this.state.movie.Writer}
-                        </h6>
+                        <h4>{this.state.movie.runtime} minutes</h4>
+                        <p>{this.state.movie.overview}</p>
                         <h4>
                             Details
                         </h4>
                         <h6>
-                            <strong>Awards: </strong>{this.state.movie.Awards}<br />
-                            <strong>
-                                Ratings:</strong> {this.state.movie.Ratings.Value}
-                            <ul>{this.state.movie.Ratings.map((rating) => {
-                                return (<li key={rating.Source}>
-                                    <strong>{rating.Source}</strong> {rating.Value}
-                                </li>)
-                            })}</ul>
-                            <strong>Rated: </strong>{this.state.movie.Rated} <br />
-                            <strong>Released: </strong>{this.state.movie.Released} <br />
-                            <strong>BoxOffice: </strong>{this.state.movie.BoxOffice} <br />
-                            <strong>Language: </strong>{this.state.movie.Language} <br />
-                            <strong>Country: </strong>{this.state.movie.Country} <br />
-                            <strong>Production: </strong>{this.state.movie.Production} <br />
-                            <strong>Website: </strong><a href={this.state.movie.Website}>{this.state.movie.Website}</a>
+                            <strong>Rated: </strong>{this.state.movie.vote_average} <br />
+                            <strong>Released: </strong>{this.state.movie.release_date} <br />
                         </h6>
                         </div>
                     </div >

@@ -67,13 +67,15 @@ class SearchResults extends Component {
   componentDidMount() {
     this.search = this.props.search;
 
+    modelInstance.getTest();
+
 
     if (this.state.search == undefined) {
       this.state.search = "Avatar";
     }
 
     modelInstance
-      .getMovie(this.state.search, "", this.state.type)
+      .getMovie(this.state.search)
       .then(movieResponse => {
         this.setState({
           status: "LOADED",
@@ -107,9 +109,9 @@ class SearchResults extends Component {
         movies = this.state.movies;
         var back_btn = <button onClick={this.BackPage} id="back_btn">back</button>
         var next_btn = <button onClick={this.NextPage}>next</button>
-        if (movies.Search != undefined) {
-          html = movies.Search.map((element, index) =>
-            <Link to={`/movie/${element.imdbID}`} key={index}><MovieCard movie={element} /></Link>
+        if (movies.results != undefined) {
+          html = movies.results.map((element, index) =>
+            <Link to={`/movie/${element.id}`} key={index}><MovieCard movie={element} /></Link>
           );
         }
 
