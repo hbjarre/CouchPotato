@@ -39,6 +39,7 @@ class App extends Component {
     return (
 
       <div className="App">
+
         {this.state.user ? (
           <div>
             <Header />
@@ -49,7 +50,15 @@ class App extends Component {
             <Route path="/wish_list" render={() => <Wish_list />} />
             <Route path="/my_rated_list" render={() => <Rated_list />} />
           </div>
-        ) : (<Login />)}
+        ) : (
+            <div>
+              <Header />
+              <Route exact path="/" component={Welcome} />
+              <Route exact path="/search/title=:str&amp;type=:typ" component={SearchResults} />
+              <Route path="/movie/:id" component={DetailView} />
+              <Login/>
+            </div>
+          )}
       </div>
 
     );
