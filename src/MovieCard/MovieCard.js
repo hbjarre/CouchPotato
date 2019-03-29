@@ -8,9 +8,9 @@ class MovieCard extends Component {
   render() {
     let movie = this.props.movie;
 
-    let poster = movie.Poster;
+    let poster = "http://image.tmdb.org/t/p/w342/" + movie.poster_path;
     let posterClass = "";
-    if (poster == "N/A") {
+    if (movie.poster_path == null) {
         poster = "img/film-roll.png";
         posterClass = "notFound";
     }
@@ -18,7 +18,7 @@ class MovieCard extends Component {
     return (
       <div className="movieCard">
           <img className={posterClass} src={poster} />
-          <p>{movie.Title}</p>
+          <p>{movie.original_title}</p>
       </div>
     );
   }

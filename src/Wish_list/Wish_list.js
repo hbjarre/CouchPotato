@@ -54,12 +54,14 @@ class Wish_list extends Component {
                 movies: responses
               });
             }).catch(e => {
+              console.error(e);
               this.setState({
                 status: "ERROR"
               });
             });
           });
       }).catch(e => {
+        console.error(e);
         this.setState({
           status: "ERROR"
         });
@@ -90,7 +92,7 @@ class Wish_list extends Component {
           }
           else {
             html = movies.map((element, index) =>
-              <Link to={`/movie/${element.imdbID}`} key={index}><MovieCard movie={element} /></Link>
+              <Link to={`/movie/${element.id}`} key={index}><MovieCard movie={element} /></Link>
             );
           }
         }
