@@ -111,7 +111,7 @@ class SearchResults extends Component {
         var next_btn = <button onClick={this.NextPage}>next</button>
         if (movies.results != undefined) {
           html = movies.results.map((element, index) =>
-            <Link to={`/movie/${element.id}`} key={index}><MovieCard movie={element} /></Link>
+            <Link to={`/movie/${element.id}`} style={{ textDecoration: "black", color: "black" }} key={index}><MovieCard movie={element} /></Link>
           );
         }
 
