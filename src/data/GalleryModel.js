@@ -37,6 +37,11 @@ class GalleryModel extends ObservableModel {
         return fetch(url).then(this.processResponse);*/
       }
 
+      getDiscover() {
+        const url = `https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=b02cf99d60b8503f1a184894c4412dbb`;
+        return fetch(url).then(this.processResponse);
+      }
+
       getTest(string="Avatar") {
         const url = 'https://api.themoviedb.org/3/search/movie?include_adult=true&query='+ string + '&page=1&api_key=b02cf99d60b8503f1a184894c4412dbb';
         return fetch(url).then(this.processResponse);
