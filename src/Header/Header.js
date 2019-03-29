@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import SearchView from "../SearchView/SearchView";
-import { DropdownButton, Dropdown } from 'react-bootstrap';
+import { DropdownButton, Dropdown, Button } from 'react-bootstrap';
 import fire from "../config/Fire";
 
 class Header extends Component {
@@ -41,14 +41,7 @@ class Header extends Component {
             </DropdownButton>;
 
         if (!this.state.user) {
-            login_info =
-                <DropdownButton
-                    title="User"
-                    id="input-group-dropdown-1"
-                    className="mx-1"
-                >
-                    <Dropdown.Item as={Link} to="/login">Login</Dropdown.Item>
-                </DropdownButton>
+            login_info = <Link to="/login"><Button className="mx-1">Login</Button></Link>
         }
         return (
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
