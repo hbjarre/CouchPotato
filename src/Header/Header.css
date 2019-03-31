@@ -1,5 +1,5 @@
 .bs-dark.navbar-inverse {
-  background-color: #080808;
+  background-color: #080808c0;
   border-color: #080808;
 }
 .bs-dark .navbar-img {padding:5px 6px !important;}
@@ -8,7 +8,7 @@
   min-width: 200px;
   padding: 5px 0;
   margin: 2px 0 0;
-  background-color: rgb(15, 15, 15);
+  background-color: rgb(12, 12, 12);
   border: 1px solid rgba(0, 0, 0, 0.7);
   border: 1px solid rgba(0, 0, 0, .15);
   -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
