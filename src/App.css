@@ -12,7 +12,7 @@ background: linear-gradient(to right, #6f0000, #200122); /* W3C, IE 10+/ Edge, F
     width: 200px;
     height: 350px;
     border-radius: 10px;
-    background-color: #080808;
+    background-color: #080808c4;
     transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
     border: 1px solid #080808;
 
