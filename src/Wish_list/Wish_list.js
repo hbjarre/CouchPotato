@@ -80,7 +80,7 @@ class Wish_list extends Component {
     // of returned movies
     switch (this.state.status) {
       case "LOADING":
-        html = <em>Loading...</em>;
+        html = <div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>;
         break;
       case "LOADED":
       
