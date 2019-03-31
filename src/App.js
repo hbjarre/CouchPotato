@@ -39,10 +39,10 @@ class App extends Component {
     return (
 
       <div className="App">
-        <Header />
-        <Route exact path="/" component={Welcome} />
-        <Route exact path="/search/title=:str&amp;type=:typ" component={SearchResults} />
-        <Route path="/movie/:id" component={DetailView} />
+              <Header/>
+              <Route exact path="/" component={Welcome} />
+              <Route exact path="/search/title=:str" component={SearchResults} />
+              <Route path="/movie/:id" component={DetailView} />
         {this.state.user ? (
           <div>
             <Route path="/settings" render={() => <Settings />} />
