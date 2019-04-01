@@ -36,11 +36,11 @@ class Welcome extends Component {
 
     switch (this.state.status) {
       case "LOADING":
-        html = <div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>;
+        html = <div className="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>;
         break;
       case "LOADED":
         html = this.state.movies.map((element, index) =>
-          <Link to={`/movie/${element.id}`} key={index}><MovieCard movie={element} /></Link>
+          <MovieCard movie={element} key={index}/>
         );
         break;
       default:

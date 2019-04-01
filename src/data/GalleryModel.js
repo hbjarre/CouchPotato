@@ -56,15 +56,15 @@ class GalleryModel extends ObservableModel {
           if (query.size == 0) {
             db.collection("user_data").add({
               user_id: fire.auth().currentUser.uid,
-              watch_list: [movie.imdb_id]
+              watch_list: [movie.id]
             });
           }
           else {
             query.forEach(function(doc) {
               var watchList = doc.data().watch_list;
 
-              if (!watchList.includes(movie.imdb_id)) {
-                watchList.push(movie.imdb_id);
+              if (!watchList.includes(movie.id)) {
+                watchList.push(movie.id);
 
                 db.collection("user_data").doc(doc.id).update({
                   watch_list: watchList
@@ -84,8 +84,8 @@ class GalleryModel extends ObservableModel {
           query.forEach(function(doc) {
             var watchList = doc.data().watch_list;
 
-            if (watchList.includes(movie.imdb_id)) {
-              watchList.splice(watchList.indexOf(movie.imdb_id), 1);
+            if (watchList.includes(movie.id)) {
+              watchList.splice(watchList.indexOf(movie.id), 1);
 
               db.collection("user_data").doc(doc.id).update({
                 watch_list: watchList

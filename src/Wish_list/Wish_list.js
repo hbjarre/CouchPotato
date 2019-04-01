@@ -80,7 +80,7 @@ class Wish_list extends Component {
     // of returned movies
     switch (this.state.status) {
       case "LOADING":
-        html = <div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>;
+        html = <div className="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>;
         break;
       case "LOADED":
       
@@ -92,7 +92,7 @@ class Wish_list extends Component {
           }
           else {
             html = movies.map((element, index) =>
-              <Link to={`/movie/${element.id}`} key={index}><MovieCard movie={element} /></Link>
+              <MovieCard movie={element} key={index}/>
             );
           }
         }

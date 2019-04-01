@@ -102,7 +102,7 @@ class SearchResults extends Component {
     // of returned movies
     switch (this.state.status) {
       case "LOADING":
-        html = <div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>;
+        html = <div className="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>;
         break;
       case "LOADED":
 

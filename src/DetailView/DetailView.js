@@ -80,7 +80,7 @@ class DetailView extends Component {
         if (this.state.user != null && this.state.movie != null) {
             var db = fire.firestore();
             var query = db.collection("user_data").where("user_id", "==", this.state.user.uid)
-                                                  .where("watch_list", "array-contains", this.state.movie.imdb_id);
+                                                  .where("watch_list", "array-contains", this.state.movie.id);
 
             query.get().then((doc) => {
                 if (doc.size > 0) {
@@ -105,6 +105,7 @@ class DetailView extends Component {
     }
 
     render() {
+        console.log(this.state.movie)
         let movie = null;
         let html = null;
 
@@ -114,7 +115,7 @@ class DetailView extends Component {
         // of returned movies
         switch (this.state.status) {
             case "LOADING":
-                html = <div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>;
+                html = <div className="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>;
                 break;
             case "LOADED":
 

@@ -1,4 +1,7 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
+
+import Star from "../star";
 
 class MovieCard extends Component {
   constructor(props) {
@@ -17,8 +20,9 @@ class MovieCard extends Component {
 
     return (
       <div className="movieCard" id="parent">
-        <img className={posterClass} src={poster} />
+        <Link to={`/movie/${movie.id}`}><img className={posterClass} src={poster} /></Link>
         <p  style={{ textDecoration: "white", color: "white" }} className="hover-content">{movie.original_title}</p>
+        <Star movie={movie} />
       </div>
     );
   }
