@@ -21,8 +21,10 @@ class MovieCard extends Component {
     return (
       <div className="movieCard" id="parent">
         <Link to={`/movie/${movie.id}`}><img className={posterClass} src={poster} /></Link>
-        <p  style={{ textDecoration: "white", color: "white" }} className="hover-content">{movie.original_title}</p>
+        <div className="hover-content">
         <Star movie={movie} />
+        <span class="tooltiptext">Add to watch list</span>
+        </div>
       </div>
     );
   }

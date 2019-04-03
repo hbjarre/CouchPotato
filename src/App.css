@@ -26,16 +26,18 @@ body {
 
 }
 .hover-content {
-    margin-top: -50%;
-    margin-left: 80%;
+    margin-left: 135%;
+    margin-top: -230%;
     display:none;
 
 }
 
 .star {
-    margin-left: 20%;
-    
+    margin-left: 135%;
+    margin-top: -230%;
+
 }
+
 .movieCard:hover .hover-content {
     display:block;
     z-index: 999;
@@ -44,7 +46,7 @@ body {
 
 .movieCard .hover-content:hover {
   z-index: 999;
-  transform: scale(1.5);
+  transform: scale(1.2);
   }
 
 .movieCard > img {
@@ -162,4 +164,35 @@ body {
     100% {
       transform: rotate(360deg);
     }
+  }
+
+
+  .hover-content .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: rgba(255, 255, 255, 0.548);
+    color: black;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    top: -5px;
+    right: 110%;
+  }
+  
+  .hover-content .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 100%;
+    margin-top: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent transparent rgba(255, 255, 255, 0.692);
+  }
+  
+  .hover-content:hover .tooltiptext {
+    visibility: visible;
+    transform: scale(0.8);
   }
