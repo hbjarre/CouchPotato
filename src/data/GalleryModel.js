@@ -14,27 +14,22 @@ class GalleryModel extends ObservableModel {
       }
 
       getMovie(str) {
-        //https://www.omdbapi.com/?apikey=bad7ef2d&t=Captain+Marvel
-        //https://www.omdbapi.com/?t=Captain+Marvel
-        /*if (type != "all"){
-        const url = `${BASE_URL}s=${search_string}&type=${type}&r=json&i=${i}&page=${page}`;
-        return fetch(url).then(this.processResponse)}
-        else {
-        const url = `${BASE_URL}s=${search_string}&r=json&i=${i}`;
-        return fetch(url).then(this.processResponse)}*/
 
         const url = 'https://api.themoviedb.org/3/search/movie?include_adult=false&language=en-US&language=sv-SE&query='+ str + '&page=1&api_key=b02cf99d60b8503f1a184894c4412dbb';
+        
         return fetch(url).then(this.processResponse);
+      }
+
+      discoverPopularMovies() {
+
+        const url = 'https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=b02cf99d60b8503f1a184894c4412dbb';
+        return fetch(url).then(this.processResponse);
+
       }
 
       getMovieById(i) {
         const url = `https://api.themoviedb.org/3/movie/${i}?api_key=b02cf99d60b8503f1a184894c4412dbb`;
         return fetch(url).then(this.processResponse);
-
-        /*let params = "&r=json&i="
-        const url = `${BASE_URL}` + params+i;
-        console.log(url);
-        return fetch(url).then(this.processResponse);*/
       }
 
       getTest(string="Avatar") {

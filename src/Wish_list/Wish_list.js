@@ -87,6 +87,7 @@ class Wish_list extends Component {
         movies = this.state.movies;
 
         if (movies != undefined) {
+          console.log(movies)
           if (movies.length == 0) {
             html = <div><em>Your wish list is empty.</em></div>;
           }
