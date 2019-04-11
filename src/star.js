@@ -78,9 +78,9 @@ class star extends Component {
     render() {
         var onWishList = this.state.onWishList;
 
-                var starIconClass = "far fa-star fa-3x star";
+                var starIconClass = "far fa-star fa-2x star";
                 if (onWishList) {
-                    starIconClass = "fas fa-star fa-3x star";
+                    starIconClass = "fas fa-star fa-2x star";
                 }
                 if (!this.state.showWishList) {
                     starIconClass = "d-none";

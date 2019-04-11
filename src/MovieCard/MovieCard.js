@@ -18,6 +18,8 @@ class MovieCard extends Component {
       posterClass = "notFound";
     }
 
+    posterClass += " posterImage";
+
     return (
       <div className="movieCard" id="parent">
         <Link to={`/movie/${movie.id}` }><img className={posterClass} src={poster} /></Link>
