@@ -18,14 +18,24 @@ class MovieCard extends Component {
       posterClass = "notFound";
     }
 
-    posterClass += " posterImage";
+    let cardClass = "";
+
+    if (this.props.big) {
+      posterClass += " posterImageBig";
+      cardClass = "bigboymovieCard";
+    }
+    else {
+      posterClass += " posterImage";
+      cardClass = "movieCard";
+    }
+    
 
     return (
-      <div className="movieCard" id="parent">
+      <div className={cardClass}>
         <Link to={`/movie/${movie.id}` }><img className={posterClass} src={poster} /></Link>
         <div className="hover-content">
         <Star movie={movie} />
-        <span class="tooltiptext">Add to watch list</span>
+        <span className="tooltiptext">Add to watch list</span>
         </div>
       </div>
     );

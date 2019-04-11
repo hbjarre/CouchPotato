@@ -6,6 +6,12 @@ body {
     color: white;    
 }
 
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 240px);
+  grid-template-rows: 340px;
+  justify-content: center;
+}
 
 .movieCard {
     margin: 20px;
@@ -52,6 +58,33 @@ body {
     height: 300px;
     object-fit: cover;
     border-radius: 10px;
+}
+
+.bigboymovieCard {
+  grid-column: span 2;
+  grid-row: span 2;
+  margin: 20px;
+  width: 440px;
+  height: 640px;
+  border-radius: 10px;
+  background-color: white;
+  transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+  cursor: pointer;
+}
+
+.bigboymovieCard:hover {
+  box-shadow: 0px 0px 91px -6px rgba(0,0,0,0.38);
+  transform: scale(1.05, 1.05);
+  transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+  
+
+}
+
+.posterImageBig {
+  width: 440px;
+  height: 640px;
+  object-fit: cover;
+  border-radius: 10px;
 }
 
 .notFound {
@@ -193,47 +226,3 @@ body {
     visibility: visible;
     transform: scale(0.8);
   }
-
-  .bigboymovieCard {
-    margin: 20px;
-    width: 400px;
-    height: 740px;
-    border-radius: 10px;
-    background-color: white;
-    transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
-    border: 1px solid lightgray;
-
-    cursor: pointer;
-}
-
-.bigboymovieCard:hover {
-    box-shadow: 0px 0px 91px -6px rgba(0,0,0,0.38);
-    transform: scale(1.05, 1.05);
-    transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
-    
-
-}
-
-.bigboymovieCard > img {
-    width: 396px;
-    height: 600px;
-    object-fit: cover;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-}
-
-.bigboymovieCard > p {
-    font-size: 40px;
-    font-weight: 300;
-
-    width: 400px;
-    height: 100px;
-    padding-left: 10px;
-    padding-right: 10px;
-
-    text-overflow: ellipsis;
-    overflow: hidden;
-    white-space: nowrap;
-    text-align: center;
-    line-height: 120px;
-}
