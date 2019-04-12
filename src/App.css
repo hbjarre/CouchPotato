@@ -53,6 +53,17 @@ body {
   transform: scale(1.2);
   }
 
+.bigboymovieCard:hover .hover-content {
+  display:block;
+  z-index: 999;
+  
+}
+
+.bigboymovieCard .hover-content:hover {
+z-index: 999;
+transform: scale(1.2);
+}
+
 .posterImage {
     width: 200px;
     height: 300px;
