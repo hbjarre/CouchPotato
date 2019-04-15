@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import modelInstance from "../data/GalleryModel"
 import fire from "../config/Fire"
+import "./DetailView.css";
 
 class DetailView extends Component {
 
@@ -20,12 +21,12 @@ class DetailView extends Component {
 
         fire.auth().onAuthStateChanged((user) => {
             if (user) {
-                this.setState({user: user});
+                this.setState({ user: user });
                 this.refreshWishList();
             } else {
-                this.setState({user: null});
+                this.setState({ user: null });
             }
-          });
+        });
 
     }
 
@@ -57,12 +58,12 @@ class DetailView extends Component {
     AddToWatchList() {
         if (this.state.onWishList) {
             modelInstance.removeFromWatch(this.state.movie).then(() => {
-                this.setState({onWishList: false});
+                this.setState({ onWishList: false });
             });
         }
         else {
             modelInstance.addToWatch(this.state.movie).then(() => {
-                this.setState({onWishList: true});
+                this.setState({ onWishList: true });
             });
         }
     }
@@ -80,7 +81,7 @@ class DetailView extends Component {
         if (this.state.user != null && this.state.movie != null) {
             var db = fire.firestore();
             var query = db.collection("user_data").where("user_id", "==", this.state.user.uid)
-                                                  .where("watch_list", "array-contains", this.state.movie.id);
+                .where("watch_list", "array-contains", this.state.movie.id);
 
             query.get().then((doc) => {
                 if (doc.size > 0) {
@@ -122,9 +123,9 @@ class DetailView extends Component {
                 movie = <img src={"http://image.tmdb.org/t/p/w342/" + this.state.movie.poster_path} />
                 var onWishList = this.state.onWishList;
 
-                var starIconClass = "ml-3 far fa-star fa-lg";
+                var starIconClass = "ml-3 far fa-star fa-lg star";
                 if (onWishList) {
-                    starIconClass = "ml-3 fas fa-star fa-lg";
+                    starIconClass = "ml-3 fas fa-star fa-lg star";
                 }
 
                 if (!this.state.showWishList) {
@@ -138,19 +139,22 @@ class DetailView extends Component {
                             <div className="d-flex align-items-center">
                                 <img src="/img/soffpotatis.png" className="mx-auto" style={{ width: 50, height: 50 }} alt="CouchPotato Logo" />
                                 {this.CouchPotatoRating(this.state.movie)}
-                                <i className={starIconClass} style={{color: "#F0C900", cursor: "pointer"}} onClick={() => this.AddToWatchList()}></i>
+                                <div className="detail_star">
+                                    <i className={starIconClass} style={{ color: "#F0C900", cursor: "pointer" }} onClick={() => this.AddToWatchList()}></i>
+                                    <span class="star_tooltiptext">Add to watch list</span>
+                                </div>
                             </div>
                         </div>
                         <div>
-                        <h4>{this.state.movie.runtime} minutes</h4>
-                        <p>{this.state.movie.overview}</p>
-                        <h4>
-                            Details
+                            <h4>{this.state.movie.runtime} minutes</h4>
+                            <p>{this.state.movie.overview}</p>
+                            <h4>
+                                Details
                         </h4>
-                        <h6>
-                            <strong>Rated: </strong>{this.state.movie.vote_average} <br />
-                            <strong>Released: </strong>{this.state.movie.release_date} <br />
-                        </h6>
+                            <h6>
+                                <strong>Rated: </strong>{this.state.movie.vote_average} <br />
+                                <strong>Released: </strong>{this.state.movie.release_date} <br />
+                            </h6>
                         </div>
                     </div >
                 break;
@@ -162,7 +166,7 @@ class DetailView extends Component {
         return (
             <div className="container d-flex flex-wrap flex-lg-nowrap">
                 <div className="d-flex flex-row justify-content-between flex-grow-1">
-                    <i className="fas fa-chevron-left fa-2x mt-4 mr-4" onClick={() => this.props.history.goBack()} style={{cursor: 'pointer'}}></i>
+                    <i className="fas fa-chevron-left fa-2x mt-4 mr-4" onClick={() => this.props.history.goBack()} style={{ cursor: 'pointer' }}></i>
                     <div className="m-3 moviePoster">{movie}</div>
                     <div></div>
                 </div>
