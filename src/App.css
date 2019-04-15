@@ -6,15 +6,21 @@ body {
     color: white;    
 }
 
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 240px);
+  grid-template-rows: 340px;
+  justify-content: center;
+}
 
 .movieCard {
     margin: 20px;
     width: 200px;
-    height: 350px;
+    height: 300px;
     border-radius: 10px;
     background-color: #080808c4;
     transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
-    border: 1px solid #080808;
+    /*border: 1px solid #080808;*/
 
     cursor: pointer;
 }
@@ -26,16 +32,14 @@ body {
 
 }
 .hover-content {
-    margin-left: 135%;
-    margin-top: -230%;
+    position: absolute;
+    right: 0;
+    top: 0;
     display:none;
-
 }
 
 .star {
-    margin-left: 135%;
-    margin-top: -230%;
-
+  margin: 10px;
 }
 
 .movieCard:hover .hover-content {
@@ -49,12 +53,49 @@ body {
   transform: scale(1.2);
   }
 
-.movieCard > img {
-    width: 198px;
+.bigboymovieCard:hover .hover-content {
+  display:block;
+  z-index: 999;
+  
+}
+
+.bigboymovieCard .hover-content:hover {
+z-index: 999;
+transform: scale(1.2);
+}
+
+.posterImage {
+    width: 200px;
     height: 300px;
     object-fit: cover;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
+    border-radius: 10px;
+}
+
+.bigboymovieCard {
+  grid-column: span 2;
+  grid-row: span 2;
+  margin: 20px;
+  width: 440px;
+  height: 640px;
+  border-radius: 10px;
+  background-color: white;
+  transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+  cursor: pointer;
+}
+
+.bigboymovieCard:hover {
+  box-shadow: 0px 0px 91px -6px rgba(0,0,0,0.38);
+  transform: scale(1.05, 1.05);
+  transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+  
+
+}
+
+.posterImageBig {
+  width: 440px;
+  height: 640px;
+  object-fit: cover;
+  border-radius: 10px;
 }
 
 .notFound {
@@ -82,6 +123,12 @@ body {
 }
 
 .lds-roller {
+    grid-column: span 4;
+    grid-row: span 4;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    margin-bottom: auto;
     display: inline-block;
     position: relative;
     width: 64px;

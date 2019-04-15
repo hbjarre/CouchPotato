@@ -40,18 +40,18 @@ class Welcome extends Component {
         break;
       case "LOADED":
         html = this.state.movies.map((element, index) =>
-          <MovieCard movie={element} key={index}/>
+          <MovieCard movie={element} key={index} big={(index == 0 || index == 7)}/>
         );
         break;
       default:
         html = <b>Failed to load data, please try again.</b>;
         break;
     }
-
+    
     return (
       <div className="container">
         <h3>Popular movies</h3>
-        <div className="d-flex flex-wrap justify-content-center">{html}</div>
+        <div className="card-container">{html}</div>
       </div>
     );
   }
