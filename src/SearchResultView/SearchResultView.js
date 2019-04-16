@@ -11,26 +11,23 @@ class SearchResults extends Component {
       status: "LOADING",
       search: this.props.match.params.str,
       type: this.props.match.params.typ,
-      page: 1
+      page: this.props.match.params.page
     }
-    this.url = window.location.href.split("/")[4];
-    this.NextPage = this.NextPage.bind(this);
-    this.BackPage = this.BackPage.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
     const old = this.state.search;
-    const old_type = this.state.type;
+    const old_page = this.state.page;
     const newStr = nextProps.match.params.str;
-    const new_type = nextProps.match.params.typ;
+    const new_page = nextProps.match.params.page;
 
-    if (old != newStr || old_type != new_type) {
-      modelInstance.getMovie(newStr, "", new_type, this.state.page).then(
+    if (old != newStr || old_page != new_page) {
+      modelInstance.getMovie(newStr, this.state.page).then(
         movieResponse => {
           this.setState({
             status: "LOADED",
             search: newStr,
-            type: new_type,
+            page: new_page,
             movies: movieResponse
           })
         });
@@ -67,22 +64,16 @@ class SearchResults extends Component {
   }
 
   componentDidMount() {
-    this.search = this.props.search;
-
     modelInstance.getTest();
 
-
-    if (this.state.search == undefined) {
-      this.state.search = "Avatar";
-    }
-
     modelInstance
-      .getMovie(this.state.search)
+      .getMovie(this.state.search, this.state.page)
       .then(movieResponse => {
+        console.log(movieResponse)
         this.setState({
           status: "LOADED",
-          movies: movieResponse
-
+          movies: movieResponse,
+          max_pages: movieResponse.total_pages
         });
       })
       .catch((e) => {
@@ -109,8 +100,12 @@ class SearchResults extends Component {
       case "LOADED":
 
         movies = this.state.movies;
-        var back_btn = <button onClick={this.BackPage} id="back_btn">back</button>
-        var next_btn = <button onClick={this.NextPage}>next</button>
+        if (this.state.page!=1){
+        var back_btn =<Link to={`/search/title=${this.state.search}&page=${parseInt(this.state.page)-1}`} ><i className="fas fa-chevron-left fa-2x mt-4 mr-4" style={{ cursor: 'pointer' }}></i></Link>
+        }
+        if (this.state.page<this.state.max_pages){
+        var next_btn = <Link to={`/search/title=${this.state.search}&page=${parseInt(this.state.page)+1}`} ><i className="fas fa-chevron-right fa-2x mt-4 mr-4" style={{ cursor: 'pointer' }}></i></Link>
+        }
         if (movies.results != undefined) {
           html = movies.results.map((element, index) =>
             <Link to={`/movie/${element.id}`} key={index}><MovieCard movie={element} /></Link>

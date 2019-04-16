@@ -42,7 +42,7 @@ class App extends Component {
       <div className="App">
               <Header/>
               <Route exact path="/" component={Welcome} />
-              <Route exact path="/search/title=:str" component={SearchResults} />
+              <Route exact path={`/search/title=:str&page=:page`} component={SearchResults} />
               <Route path="/movie/:id" component={DetailView} />
         {this.state.user ? (
           <div>

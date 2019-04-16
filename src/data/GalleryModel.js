@@ -34,9 +34,9 @@ class GalleryModel extends ObservableModel {
         
       }
 
-      getMovie(str) {
+      getMovie(str, page) {
        
-        const url = 'https://api.themoviedb.org/3/search/movie?include_adult=false&language=en-US&language=sv-SE&query='+ str + '&page=1&api_key=b02cf99d60b8503f1a184894c4412dbb';
+        const url = 'https://api.themoviedb.org/3/search/movie?include_adult=false&language=en-US&language=sv-SE&query='+ str + '&page='+page+'&api_key=b02cf99d60b8503f1a184894c4412dbb';
         return fetch(url).then(this.processResponse);
       }
 
