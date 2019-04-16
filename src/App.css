@@ -243,3 +243,7 @@ transform: scale(1.2);
     visibility: visible;
     transform: scale(0.8);
   }
+
+  .do-not-float {
+    float: none !important;
+  }

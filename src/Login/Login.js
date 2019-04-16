@@ -96,7 +96,7 @@ class Login extends Component {
                 </div>
         }
         return (
-            <div className="col-lg-5 mx-auto">
+            <div className="col-lg-5 mx-auto do-not-float">
                 <div className="mt-5">
                     <img src="/img/soffpotatis.png" className="w-25 mx-auto d-block" alt="CouchPotato Logo" />
                     <h5 className="text-center">Welcome to CouchPotato! 
