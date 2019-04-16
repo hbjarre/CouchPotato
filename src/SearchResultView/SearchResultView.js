@@ -34,6 +34,35 @@ class SearchResults extends Component {
     }
   }
 
+
+  NextPage() {
+    document.getElementById("back_btn").disabled = false;
+    let page_nr = (this.state.page + 1);
+    console.log(page_nr)
+    modelInstance.getMovie(this.state.search, "", this.state.type, page_nr).then(
+      movieResponse => {
+        this.setState({
+          status: "LOADED",
+          page: page_nr,
+          movies: movieResponse
+        });
+      })
+  }
+  
+
+  BackPage() {
+    let page_nr = (this.state.page - 1);
+    console.log(page_nr)
+    modelInstance.getMovie(this.state.search, "", this.state.type, page_nr).then(
+      movieResponse => {
+        this.setState({
+          status: "LOADED",
+          page: page_nr,
+          movies: movieResponse
+        });
+      })
+  }
+
   componentDidMount() {
     modelInstance.getTest();
 
@@ -96,7 +125,8 @@ class SearchResults extends Component {
 
     return (
       <div className="container">
-        <h3>{this.state.type}</h3>
+       <Link to="/" style={{ textDecoration: "white", color: "white" }}>
+       <i className="fas fa-chevron-left fa-2x mt-4 mr-4" style={{ cursor: 'pointer' }}></i></Link>
         <div className="d-flex flex-wrap justify-content-center">{html}</div>
         {back_btn}{next_btn}
       </div>
