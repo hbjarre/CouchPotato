@@ -36,7 +36,7 @@ class SearchView extends Component {
         />
         <Link style={{ textDecoration: "black", color: "black", paddingTop: "5px" }}
           to={{
-            pathname: "/search/title=" + this.state.searchValue.replace(" ", "+"),
+            pathname: "/search/title=" + this.state.searchValue.replace(" ", "+")+"&page=1",
             state: {
               search: this.state.searchValue,
             }
