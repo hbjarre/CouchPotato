@@ -14,7 +14,6 @@ class Header extends Component {
 
         fire.auth().onAuthStateChanged((user) => {
             if (user) {
-                console.log(user)
                 this.setState({ user: user });
             } else {
                 this.setState({ user: false });
@@ -27,7 +26,6 @@ class Header extends Component {
     }
 
     render() {
-        console.log(this.state.user.email)
         var login_info =
             <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul className="nav navbar-nav navbar-right">

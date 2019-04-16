@@ -30,7 +30,6 @@ class Wish_list extends Component {
   }
 
   refreshWishList() {
-    console.log(this.state.user)
     if (this.state.user != null) {
       var db = fire.firestore();
       var query = db.collection("user_data").where("user_id", "==", this.state.user.uid);
@@ -49,7 +48,6 @@ class Wish_list extends Component {
             });
             
             Promise.all(promiseList).then(responses => {
-              console.log(responses);
               this.setState({
                 status: "LOADED",
                 movies: responses

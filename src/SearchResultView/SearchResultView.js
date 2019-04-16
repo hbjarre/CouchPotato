@@ -40,7 +40,6 @@ class SearchResults extends Component {
     modelInstance
       .getMovie(this.state.search, this.state.page)
       .then(movieResponse => {
-        console.log(movieResponse)
         this.setState({
           status: "LOADED",
           movies: movieResponse,
@@ -79,7 +78,7 @@ class SearchResults extends Component {
         }
         if (movies.results != undefined) {
           html = movies.results.map((element, index) =>
-            <Link to={`/movie/${element.id}`} key={index}><MovieCard movie={element} /></Link>
+            <MovieCard movie={element} key={index}/>
           );
         }
 

@@ -8,7 +8,6 @@ class DetailView extends Component {
     constructor(props) {
 
         super(props);
-        console.log(this.props.match.params.id)
         this.state = {
             status: "LOADING",
             id: this.props.match.params.id,
@@ -106,7 +105,6 @@ class DetailView extends Component {
     }
 
     render() {
-        console.log(this.state.movie)
         let movie = null;
         let html = null;
 
@@ -141,7 +139,7 @@ class DetailView extends Component {
                                 {this.CouchPotatoRating(this.state.movie)}
                                 <div className="detail_star">
                                     <i className={starIconClass} style={{ color: "#F0C900", cursor: "pointer" }} onClick={() => this.AddToWatchList()}></i>
-                                    <span class="star_tooltiptext">Add to watch list</span>
+                                    <span className="star_tooltiptext">Add to watch list</span>
                                 </div>
                             </div>
                         </div>

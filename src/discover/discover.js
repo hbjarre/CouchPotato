@@ -49,7 +49,6 @@ class Discovery extends Component {
             });
             
             Promise.all(promiseList).then(responses => {
-              console.log(responses);
               this.setState({
                 status: "LOADED",
                 movies: responses
@@ -78,8 +77,6 @@ class Discovery extends Component {
     var genreList = [];
 
     var myWatchlist = this.movies;
-
-    console.log(myWatchlist)
 
     myWatchlist.forEach(movie => {
         genreList.push(modelInstance.getMovieById(movie.id).genres.name);
