@@ -79,6 +79,7 @@ discoverGenre (genre) {
       <div><button type="button" className="btn btn-outline-light wht" onClick={() => {this.discoverGenre("Drama")}}>Drama</button></div>
       <div><button type="button" className="btn btn-outline-light wht" onClick={() => {this.discoverGenre("Comedy")}}>Comedy</button></div>
       <div><button type="button" className="btn btn-outline-light wht" onClick={() => {this.discoverGenre("Science Fiction")}}>SCI-FI</button></div>
+      <div><button type="button" className="btn btn-outline-light wht" onClick={() => {this.discoverGenre("Fantasy")}}>Fantasy</button></div>
       <div><button type="button" className="btn btn-outline-light wht" onClick={() => {this.discoverGenre("Horror")}}>Horror</button></div>
       <div><button type="button" className="btn btn-outline-light wht" onClick={() => {this.discoverGenre("Documentary")}}>Documentary</button></div>
         </div>
