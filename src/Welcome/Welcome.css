@@ -1,3 +1,7 @@
 .wht:focus {     
     color:white;    
 }
+
+.wht:hover {     
+    color:black;    
+}
