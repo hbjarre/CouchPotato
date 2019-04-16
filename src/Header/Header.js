@@ -40,7 +40,7 @@ class Header extends Component {
                             <li><Link to="/my_rated_list">Rated list</Link></li>
                             <li role="separator" className="divider"></li>
                             <li><Link to="/settings">Settings</Link></li>
-                            <li><Link to="/" onClick={this.logout}>Logout</Link></li>
+                            <li><Link to="/login" onClick={this.logout}>Logout</Link></li>
                         </ul>
                     </li>
                 </ul>

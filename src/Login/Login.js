@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Redirect } from 'react-router-dom'
 import {Link} from "react-router-dom";
 import fire from "../config/Fire";
 
@@ -10,9 +11,11 @@ class Login extends Component {
         this.signup = this.signup.bind(this);
         this.state = {
             email: "",
-            password: ""
+            password: "",
+            redirect: false
         }
     }
+
 
     login(e) {
         e.preventDefault();
@@ -22,7 +25,12 @@ class Login extends Component {
             let alert = document.getElementById("alert-danger");
             alert.classList.remove('d-none');
             alert.innerHTML = error.message;
-        });
+        }).then(()=> {
+            this.setState(()=>({
+                redirect:true
+            })
+            )
+        })
     }
 
     signup(e) {
@@ -43,6 +51,9 @@ class Login extends Component {
     }
 
     render() {
+        if (this.state.redirect===true){
+            return <Redirect to="/"/>
+        }
         return (
             <div className="col-sm-9 col-md-7 col-lg-5 mx-auto">
                 <div className="mt-5">
