@@ -84,10 +84,10 @@ class SearchResults extends Component {
         }
 
         else {
-          html = <b>Could not find {this.state.type}s.</b>;
+          html = <b>Could not find any movies with the title {this.state.search}.</b>;
         }
         if (movies.total_results == 0) {
-          html = <b>No movies found...</b>
+          html = <b>Could not find any movies with the title {this.state.search}.</b>
         }
         break;
       default:
@@ -99,6 +99,7 @@ class SearchResults extends Component {
       <div className="container">
         <h3>{this.state.type}</h3>
         <div className="d-flex flex-wrap justify-content-center">{html}</div>
+        {back_btn}{next_btn}
       </div>
     );
   }
