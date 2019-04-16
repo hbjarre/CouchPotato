@@ -1,11 +1,10 @@
 import React, { Component } from "react";
 import fire from "../config/Fire";
 import { Link } from "react-router-dom";
-import MovieCard from "../MovieCard/MovieCard";
 import modelInstance from "../data/GalleryModel"
 
 
-class Wish_list extends Component {
+class Discovery extends Component {
   constructor(props){
     super(props);
 
@@ -27,10 +26,11 @@ class Wish_list extends Component {
 
   componentDidMount() {
     this.refreshWishList();
+    this.findGenre();
   }
 
   refreshWishList() {
-    console.log(this.state.user)
+     
     if (this.state.user != null) {
       var db = fire.firestore();
       var query = db.collection("user_data").where("user_id", "==", this.state.user.uid);
@@ -71,6 +71,23 @@ class Wish_list extends Component {
   
   }
 
+
+  findGenre() {
+
+    console.log("attempts findGenre")
+    var genreList = [];
+
+    var myWatchlist = this.movies;
+
+    console.log(myWatchlist)
+
+    myWatchlist.forEach(movie => {
+        genreList.push(modelInstance.getMovieById(movie.id).genres.name);
+    })
+
+    console.log("works")
+  }
+
   render() {
     let movies = null;
     let html = null;
@@ -89,12 +106,11 @@ class Wish_list extends Component {
 
         if (movies != undefined) {
           if (movies.length == 0) {
-            html = <div><em>Your wish list is empty.</em></div>;
+            html = <div><em>Use random discovery</em></div>;
           }
           else {
-            html = movies.map((element, index) =>
-              <MovieCard movie={element} key={index}/>
-            );
+            html = movies[0].id;
+            ;
           }
         }
         else {
@@ -110,11 +126,11 @@ class Wish_list extends Component {
       <div className="container">
       
  
-        <h3>Wish list</h3>
+        <h3>Discovery</h3>
         <div className="d-flex flex-wrap justify-content-center">{html}</div>
       </div>
     );
   }
 }
 
-export default Wish_list;
+export default Discovery;

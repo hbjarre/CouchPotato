@@ -6,6 +6,27 @@ import { watch } from "fs";
 //const BASE_URL = "https://www.omdbapi.com/?apikey="+API_KEY+"&";
 
 
+/*0: {id: 28, name: "Action"}
+1: {id: 12, name: "Adventure"}
+2: {id: 16, name: "Animation"}
+3: {id: 35, name: "Comedy"}
+4: {id: 80, name: "Crime"}
+5: {id: 99, name: "Documentary"}
+6: {id: 18, name: "Drama"}
+7: {id: 10751, name: "Family"}
+8: {id: 14, name: "Fantasy"}
+9: {id: 36, name: "History"}
+10: {id: 27, name: "Horror"}
+11: {id: 10402, name: "Music"}
+12: {id: 9648, name: "Mystery"}
+13: {id: 10749, name: "Romance"}
+14: {id: 878, name: "Science Fiction"}
+15: {id: 10770, name: "TV Movie"}
+16: {id: 53, name: "Thriller"}
+17: {id: 10752, name: "War"}
+18: {id: 37, name: "Western"}*/
+
+
 class GalleryModel extends ObservableModel {
 
     constructor() {
@@ -14,15 +35,7 @@ class GalleryModel extends ObservableModel {
       }
 
       getMovie(str) {
-        //https://www.omdbapi.com/?apikey=bad7ef2d&t=Captain+Marvel
-        //https://www.omdbapi.com/?t=Captain+Marvel
-        /*if (type != "all"){
-        const url = `${BASE_URL}s=${search_string}&type=${type}&r=json&i=${i}&page=${page}`;
-        return fetch(url).then(this.processResponse)}
-        else {
-        const url = `${BASE_URL}s=${search_string}&r=json&i=${i}`;
-        return fetch(url).then(this.processResponse)}*/
-
+       
         const url = 'https://api.themoviedb.org/3/search/movie?include_adult=false&language=en-US&language=sv-SE&query='+ str + '&page=1&api_key=b02cf99d60b8503f1a184894c4412dbb';
         return fetch(url).then(this.processResponse);
       }
@@ -31,14 +44,22 @@ class GalleryModel extends ObservableModel {
         const url = `https://api.themoviedb.org/3/movie/${i}?api_key=b02cf99d60b8503f1a184894c4412dbb`;
         return fetch(url).then(this.processResponse);
 
-        /*let params = "&r=json&i="
-        const url = `${BASE_URL}` + params+i;
-        console.log(url);
-        return fetch(url).then(this.processResponse);*/
       }
 
       getDiscover() {
         const url = `https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=b02cf99d60b8503f1a184894c4412dbb`;
+        return fetch(url).then(this.processResponse);
+      }
+
+      getDiscoverGenre(genre) {
+        var type = genres[genre];
+        const url = 'https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&with_genres='+ type +'&api_key=b02cf99d60b8503f1a184894c4412dbb';
+        console.log(url)
+        return fetch(url).then(this.processResponse);
+      }
+
+      getGenres() {
+        const url = 'https://api.themoviedb.org/3/genre/movie/list?api_key=b02cf99d60b8503f1a184894c4412dbb'
         return fetch(url).then(this.processResponse);
       }
 
@@ -102,6 +123,47 @@ class GalleryModel extends ObservableModel {
         throw response;
       }
 }
+/*0: {id: 28, name: "Action"}
+1: {id: 12, name: "Adventure"}
+2: {id: 16, name: "Animation"}
+3: {id: 35, name: "Comedy"}
+4: {id: 80, name: "Crime"}
+5: {id: 99, name: "Documentary"}
+6: {id: 18, name: "Drama"}
+7: {id: 10751, name: "Family"}
+8: {id: 14, name: "Fantasy"}
+9: {id: 36, name: "History"}
+10: {id: 27, name: "Horror"}
+11: {id: 10402, name: "Music"}
+12: {id: 9648, name: "Mystery"}
+13: {id: 10749, name: "Romance"}
+14: {id: 878, name: "Science Fiction"}
+15: {id: 10770, name: "TV Movie"}
+16: {id: 53, name: "Thriller"}
+17: {id: 10752, name: "War"}
+18: {id: 37, name: "Western"}*/
+
+const genres = {
+  "Action": 28,
+  "Adventure": 12,
+  "Comedy": 35,
+  "Crime": 80,
+  "Documentary": 99,
+  "Drama": 18,
+  "Family": 10751,
+  "Fantasy": 14,
+  "History": 36,
+  "Horror": 27,
+  "Music": 10402,
+  "Mystery": 9648,
+  "Romance": 10749,
+  "Science Fiction": 878,
+  "TV Movie": 10770,
+  "Thriller": 53,
+  "War": 10752,
+  "Wester": 37
+};
+
 
 // Export an instance of GalleryModel
 const modelInstance = new GalleryModel();

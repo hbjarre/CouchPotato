@@ -10,6 +10,7 @@ import Wish_list from "./Wish_list/Wish_list";
 import Rated_list from "./Rated_list/Rated_list";
 import SearchResults from "./SearchResultView/SearchResultView";
 import DetailView from "./DetailView/DetailView";
+import Discovery from "./discover/discover";
 
 class App extends Component {
   constructor(props) {
@@ -48,6 +49,7 @@ class App extends Component {
             <Route path="/settings" render={() => <Settings />} />
             <Route path="/wish_list" render={() => <Wish_list />} />
             <Route path="/my_rated_list" render={() => <Rated_list />} />
+            <Route path="/discovery" render={() => <Discovery />} />
           </div>
         ) : (
             <div>
