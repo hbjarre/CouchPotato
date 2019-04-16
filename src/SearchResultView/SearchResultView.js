@@ -37,6 +37,7 @@ class SearchResults extends Component {
     }
   }
 
+
   NextPage() {
     document.getElementById("back_btn").disabled = false;
     let page_nr = (this.state.page + 1);
@@ -50,6 +51,7 @@ class SearchResults extends Component {
         });
       })
   }
+  
 
   BackPage() {
     let page_nr = (this.state.page - 1);
@@ -129,7 +131,8 @@ class SearchResults extends Component {
 
     return (
       <div className="container">
-        <h3>{this.state.type}</h3>
+       <Link to="/" style={{ textDecoration: "white", color: "white" }}>
+       <i className="fas fa-chevron-left fa-2x mt-4 mr-4" style={{ cursor: 'pointer' }}></i></Link>
         <div className="d-flex flex-wrap justify-content-center">{html}</div>
       </div>
     );
