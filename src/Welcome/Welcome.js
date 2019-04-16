@@ -74,11 +74,11 @@ discoverGenre (genre) {
     return (
       <div className="container">
       <div className="d-flex">
-      <div><button type="button" className="btn btn-outline-light" onClick={() => {this.updateMovies()}}>Popular movies</button></div>
-      <div><button type="button" className="btn btn-outline-light" onClick={() => {this.discoverGenre("Science Fiction")}}>Discover SCI-FI</button></div>
-      <div><button type="button" className="btn btn-outline-light" onClick={() => {this.discoverGenre("Comedy")}}>Discover Comedy</button></div>
-      <div><button type="button" className="btn btn-outline-light" onClick={() => {this.discoverGenre("Horror")}}>Discover Horror</button></div>
-      <div><button type="button" className="btn btn-outline-light" onClick={() => {this.discoverGenre("Documentary")}}>Discover Documentary</button></div>
+      <div><button type="button" className="btn btn-outline-light wht" onClick={() => {this.updateMovies()}}>Popular movies</button></div>
+      <div><button type="button" className="btn btn-outline-light wht" onClick={() => {this.discoverGenre("Science Fiction")}}>Discover SCI-FI</button></div>
+      <div><button type="button" className="btn btn-outline-light wht" onClick={() => {this.discoverGenre("Comedy")}}>Discover Comedy</button></div>
+      <div><button type="button" className="btn btn-outline-light wht" onClick={() => {this.discoverGenre("Horror")}}>Discover Horror</button></div>
+      <div><button type="button" className="btn btn-outline-light wht" onClick={() => {this.discoverGenre("Documentary")}}>Discover Documentary</button></div>
         </div>
         <div className="card-container">{html}</div>
       </div>
