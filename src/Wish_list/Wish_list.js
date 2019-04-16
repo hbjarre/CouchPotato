@@ -106,9 +106,12 @@ class Wish_list extends Component {
 
     return (
       <div className="container">
-      
- 
-        <h3>Wish list</h3>
+        <div className="d-flex d-flex justify-content-between">
+        <Link to="/" style={{ textDecoration: "white", color: "white" }}>
+       <i className="fas fa-chevron-left fa-2x mt-4 mr-4" style={{ cursor: 'pointer' }}></i></Link>
+       <h3>Wish list</h3>
+        </div>
+        
         <div className="d-flex flex-wrap justify-content-center">{html}</div>
       </div>
     );

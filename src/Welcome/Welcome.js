@@ -16,7 +16,6 @@ class Welcome extends Component {
 
 
   updateMovies () {
-  
     modelInstance.getDiscover().then((movies) => {
       this.setState({movies: movies.results, status: "LOADED"});
     }).catch((e) => {
@@ -74,7 +73,7 @@ discoverGenre (genre) {
     return (
       <div className="container">
       <div className="d-flex">
-      <div><button type="button" className="btn btn-outline-light wht" onClick={() => {this.updateMovies()}}>Popular movies</button></div>
+      <div><button id="popular" type="button" className="btn btn-outline-light wht" onClick={() => {this.updateMovies()}}>Popular movies</button></div>
       <div><button type="button" className="btn btn-outline-light wht" onClick={() => {this.discoverGenre("Action")}}>Action</button></div>
       <div><button type="button" className="btn btn-outline-light wht" onClick={() => {this.discoverGenre("Drama")}}>Drama</button></div>
       <div><button type="button" className="btn btn-outline-light wht" onClick={() => {this.discoverGenre("Comedy")}}>Comedy</button></div>
