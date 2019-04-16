@@ -7,7 +7,6 @@ class star extends Component {
     constructor(props) {
 
         super(props);
-        console.log(this.props.movie)
         this.state = {
             id: this.props.movie.id,
             movie: this.props.movie,

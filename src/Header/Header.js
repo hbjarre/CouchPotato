@@ -7,7 +7,6 @@ import "./Header.css";
 class Header extends Component {
     constructor(props) {
         super(props);
-        console.log(this.props.user)
         this.logout = this.logout.bind(this);
         this.state = {
             user: false
@@ -15,7 +14,8 @@ class Header extends Component {
 
         fire.auth().onAuthStateChanged((user) => {
             if (user) {
-                this.setState({ user: true });
+                console.log(user)
+                this.setState({ user: user });
             } else {
                 this.setState({ user: false });
             }
@@ -27,27 +27,33 @@ class Header extends Component {
     }
 
     render() {
+        console.log(this.state.user.email)
         var login_info =
             <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul className="nav navbar-nav navbar-right">
                     <li className="dropdown">
                         <a href="#" className="dropdown-toggle navbar-img" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                            Account
-<img src="http://placehold.it/150x150" className="img-circle" alt="Profile Image" />
+                            {this.state.user.email}
                         </a>
                         <ul className="dropdown-menu">
                             <li><Link to="/wish_list">Wish list</Link></li>
-                            <li><Link to="/my_rated_list">Rated list</Link></li>
                             <li role="separator" className="divider"></li>
-                            <li><Link to="/settings">Settings</Link></li>
                             <li><Link to="/login" onClick={this.logout}>Logout</Link></li>
                         </ul>
                     </li>
                 </ul>
-            </div>;
+            </div>
 
-        if (!this.state.user) {
-            login_info = <div><Link to="/login" className=" navbar-img" role="button" style={{ textDecoration: "white", color: "white" }}>Login</Link></div>;
+        if (this.state.user===false) {
+            login_info = <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul className="nav navbar-nav navbar-right">
+                    <li >
+                        <Link to="/login" aria-haspopup="true" aria-expanded="false">
+                            Login/Sign up
+                        </Link>
+                    </li>
+                </ul>
+            </div>
         }
         return (
             <div>

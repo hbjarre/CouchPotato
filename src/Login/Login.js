@@ -40,11 +40,19 @@ class Login extends Component {
 
     signup(e) {
         e.preventDefault();
-        fire.auth().createUserWithEmailAndPassword(this.state.email, this.state.password).catch((error) => {
+        fire.auth().createUserWithEmailAndPassword(this.state.email, this.state.password).then((u)=>{
+            this.setState(()=>({
+                status: "LOADING",
+                redirect:true,
+            }));
+        }).catch((error) => {
             console.log(error);
             let alert = document.getElementById("alert-danger");
             alert.classList.remove('d-none');
             alert.innerHTML = error.message;
+            this.setState(()=>({
+                status:"LOADED"
+            }));
         });
     }
 
