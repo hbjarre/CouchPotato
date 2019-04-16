@@ -113,10 +113,10 @@ class SearchResults extends Component {
         }
 
         else {
-          html = <b>Could not find {this.state.type}s.</b>;
+          html = <b>Could not find any movies with the title {this.state.search}.</b>;
         }
         if (movies.total_results == 0) {
-          html = <b>No movies found...</b>
+          html = <b>Could not find any movies with the title {this.state.search}.</b>
         }
         break;
       default:
@@ -129,6 +129,7 @@ class SearchResults extends Component {
        <Link to="/" style={{ textDecoration: "white", color: "white" }}>
        <i className="fas fa-chevron-left fa-2x mt-4 mr-4" style={{ cursor: 'pointer' }}></i></Link>
         <div className="d-flex flex-wrap justify-content-center">{html}</div>
+        {back_btn}{next_btn}
       </div>
     );
   }
