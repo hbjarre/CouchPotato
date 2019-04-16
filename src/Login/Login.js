@@ -12,24 +12,29 @@ class Login extends Component {
         this.state = {
             email: "",
             password: "",
-            redirect: false
+            redirect: false,
+            status: "LOADED"
         }
     }
 
 
     login(e) {
+
         e.preventDefault();
         fire.auth().signInWithEmailAndPassword(this.state.email, this.state.password).then((u) => {
+            this.setState(()=>({
+                status: "LOADING",
+                redirect:true,
+            }));
         }).catch((error) => {
             console.log(error);
             let alert = document.getElementById("alert-danger");
             alert.classList.remove('d-none');
             alert.innerHTML = error.message;
-        }).then(()=> {
             this.setState(()=>({
-                redirect:true
-            })
-            )
+                status:"LOADED"
+            }));
+            
         })
     }
 
@@ -51,16 +56,16 @@ class Login extends Component {
     }
 
     render() {
+        let html="";
         if (this.state.redirect===true){
             return <Redirect to="/"/>
         }
-        return (
-            <div className="col-sm-9 col-md-7 col-lg-5 mx-auto">
-                <div className="mt-5">
-                    <img src="/img/soffpotatis.png" className="w-25 mx-auto d-block" alt="CouchPotato Logo" />
-                    <h1 className="text-center">CouchPotato</h1>
-                </div>
-                <div className="card my-5">
+        switch (this.state.status) {
+            case "LOADING":
+                html = <div className="lds-roller"></div>;
+                break;
+            case "LOADED":
+                html=<div className="card my-5">
                     <div className="card-body">
                         <h5 className="card-title text-center">Login</h5>
                         <form className="w-100">
@@ -81,6 +86,16 @@ class Login extends Component {
                         </form>
                     </div>
                 </div>
+        }
+        return (
+            <div className="col-lg-5 mx-auto">
+                <div className="mt-5">
+                    <img src="/img/soffpotatis.png" className="w-25 mx-auto d-block" alt="CouchPotato Logo" />
+                    <h5 className="text-center">Welcome to CouchPotato! 
+                    Login or Signup to get personalised recommendations based on your favorite movies! 
+                    Add movies to your watch list and you'll never forget which movies you want to see!</h5>
+                </div>
+                {html}
             </div>
         );
     }
