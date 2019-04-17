@@ -87,7 +87,7 @@ class Wish_list extends Component {
 
         if (movies != undefined) {
           if (movies.length == 0) {
-            html = <div><em>Your wish list is empty.</em></div>;
+            html = <div><em>Your watch list is empty.</em></div>;
           }
           else {
             html = movies.map((element, index) =>
@@ -109,7 +109,7 @@ class Wish_list extends Component {
         <div className="d-flex d-flex justify-content-between">
         <Link to="/" style={{ textDecoration: "white", color: "white" }}>
        <i className="fas fa-chevron-left fa-2x mt-4 mr-4" style={{ cursor: 'pointer' }}></i></Link>
-       <h3>Wish list</h3>
+       <h3>Watch list</h3>
         </div>
         
         <div className="d-flex flex-wrap justify-content-center">{html}</div>
