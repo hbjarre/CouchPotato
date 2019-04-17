@@ -168,7 +168,7 @@ class DetailView extends Component {
                     <div className="m-3 moviePoster">{movie}</div>
                     <div></div>
                 </div>
-                <div className="d-flex p-3">{html}</div>
+                <div className="d-flex flex-wrap justify-content-center">{html}</div>
             </div>
         );
     }

@@ -72,7 +72,7 @@ discoverGenre (genre) {
     
     return (
       <div className="container">
-      <div className="d-flex">
+      <div className="d-flex flex-wrap">
       <div><button id="popular" type="button" className="btn btn-outline-light wht" onClick={() => {this.updateMovies()}}>Popular movies</button></div>
       <div><button type="button" className="btn btn-outline-light wht" onClick={() => {this.discoverGenre("Action")}}>Action</button></div>
       <div><button type="button" className="btn btn-outline-light wht" onClick={() => {this.discoverGenre("Drama")}}>Drama</button></div>
