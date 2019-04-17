@@ -35,9 +35,13 @@ class DetailView extends Component {
         modelInstance
             .getMovieById(this.state.id)
             .then(movie => {
+                console.log("movie: ", movie);
                 this.setState({
                     status: "LOADED",
-                    movie: movie
+                    movie: movie,
+                    genres: movie.genres,
+                    production_companies: movie.production_companies,
+                    countries: movie.production_countries
                 });
 
                 this.refreshWishList();
@@ -54,6 +58,8 @@ class DetailView extends Component {
 
     }
 
+
+
     AddToWatchList() {
         if (this.state.onWishList) {
             modelInstance.removeFromWatch(this.state.movie).then(() => {
@@ -68,11 +74,11 @@ class DetailView extends Component {
     }
 
     CouchPotatoRating(movie) {
-        if (movie.Metascore == "N/A") {
+        if (movie.vote_average == "0") {
             return <h5>No score</h5>
         }
         else {
-            return <h4>{this.state.movie.Metascore}/100</h4>
+            return <h4>{movie.vote_average}/10</h4>
         }
     }
 
@@ -104,10 +110,25 @@ class DetailView extends Component {
         }
     }
 
+    getSomeList(badlist, goodlist) {
+        for (let i in badlist) {
+            if (i == 0){
+                goodlist.push(badlist[i].name)
+            }
+            else {goodlist.push(", " + badlist[i].name)}
+        }
+        return goodlist
+    }
+
     render() {
         let movie = null;
         let html = null;
-
+        var genre_list = []
+        genre_list = this.getSomeList(this.state.genres, genre_list);
+        var companies_list = []
+        companies_list = this.getSomeList(this.state.production_companies, companies_list)
+        var countries_list = []
+        countries_list = this.getSomeList(this.state.countries, countries_list)
 
         // depending on the state we either generate
         // useful message to the user or show the list
@@ -135,7 +156,6 @@ class DetailView extends Component {
                         <div className="d-flex align-items-center justify-content-between w-100">
                             <h3><strong>{this.state.movie.original_title}</strong></h3>
                             <div className="d-flex align-items-center">
-                                <img src="/img/soffpotatis.png" className="mx-auto" style={{ width: 50, height: 50 }} alt="CouchPotato Logo" />
                                 {this.CouchPotatoRating(this.state.movie)}
                                 <div className="detail_star">
                                     <i className={starIconClass} style={{ color: "#F0C900", cursor: "pointer" }} onClick={() => this.AddToWatchList()}></i>
@@ -144,14 +164,17 @@ class DetailView extends Component {
                             </div>
                         </div>
                         <div>
+                            <h5>{genre_list}</h5> <br/>
                             <h4>{this.state.movie.runtime} minutes</h4>
                             <p>{this.state.movie.overview}</p>
                             <h4>
                                 Details
                         </h4>
                             <h6>
-                                <strong>Rated: </strong>{this.state.movie.vote_average} <br />
                                 <strong>Released: </strong>{this.state.movie.release_date} <br />
+                                <strong>Companies: </strong> {companies_list} <br />
+                                <strong>Production countries: </strong> {countries_list} <br />
+                                <strong>Original language: </strong> {this.state.movie.original_language}
                             </h6>
                         </div>
                     </div >
