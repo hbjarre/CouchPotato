@@ -34,7 +34,7 @@ class Header extends Component {
                             {this.state.user.email}
                         </a>
                         <ul className="dropdown-menu">
-                            <li><Link to="/wish_list">Wish list</Link></li>
+                            <li><Link to="/wish_list">Watch list</Link></li>
                             <li role="separator" className="divider"></li>
                             <li><Link to="/login" onClick={this.logout}>Logout</Link></li>
                         </ul>
