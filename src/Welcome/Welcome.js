@@ -10,17 +10,18 @@ class Welcome extends Component {
 
     this.state = {
       status: "LOADING",
-      movies: []
+      movies: [],
+      genre: "All"
     }
   }
 
 
   updateMovies () {
     modelInstance.getDiscover().then((movies) => {
-      this.setState({movies: movies.results, status: "LOADED"});
+      this.setState({movies: movies.results, status: "LOADED", genre: "All"});
     }).catch((e) => {
       console.error(e);
-      this.setState({status: "ERROR"});
+      this.setState({status: "ERROR", genre: "All"});
     });
 
 }
@@ -28,10 +29,10 @@ class Welcome extends Component {
 
 discoverGenre (genre) {
   modelInstance.getDiscoverGenre(genre).then((movies) => {
-    this.setState({movies: movies.results, status: "LOADED"});
+    this.setState({movies: movies.results, status: "LOADED", genre: genre});
   }).catch((e) => {
     console.error(e);
-    this.setState({status: "ERROR"});
+    this.setState({status: "ERROR", genre: genre});
   });
 }
 
@@ -73,14 +74,14 @@ discoverGenre (genre) {
     return (
       <div className="container">
       <div className="d-flex flex-wrap">
-      <div><button id="popular" type="button" className="btn btn-outline-light wht" onClick={() => {this.updateMovies()}}>Popular movies</button></div>
-      <div><button type="button" className="btn btn-outline-light wht" onClick={() => {this.discoverGenre("Action")}}>Action</button></div>
-      <div><button type="button" className="btn btn-outline-light wht" onClick={() => {this.discoverGenre("Drama")}}>Drama</button></div>
-      <div><button type="button" className="btn btn-outline-light wht" onClick={() => {this.discoverGenre("Comedy")}}>Comedy</button></div>
-      <div><button type="button" className="btn btn-outline-light wht" onClick={() => {this.discoverGenre("Science Fiction")}}>SCI-FI</button></div>
-      <div><button type="button" className="btn btn-outline-light wht" onClick={() => {this.discoverGenre("Fantasy")}}>Fantasy</button></div>
-      <div><button type="button" className="btn btn-outline-light wht" onClick={() => {this.discoverGenre("Horror")}}>Horror</button></div>
-      <div><button type="button" className="btn btn-outline-light wht" onClick={() => {this.discoverGenre("Documentary")}}>Documentary</button></div>
+      <div><button id="popular" type="button" className={"btn btn-outline-light wht " + (this.state.genre == "All" ? "active" : "")} onClick={() => {this.updateMovies()}}>Popular movies</button></div>
+      <div><button type="button" className={"btn btn-outline-light wht " + (this.state.genre == "Action" ? "active" : "")} onClick={() => {this.discoverGenre("Action")}}>Action</button></div>
+      <div><button type="button" className={"btn btn-outline-light wht " + (this.state.genre == "Drama" ? "active" : "")} onClick={() => {this.discoverGenre("Drama")}}>Drama</button></div>
+      <div><button type="button" className={"btn btn-outline-light wht " + (this.state.genre == "Comedy" ? "active" : "")} onClick={() => {this.discoverGenre("Comedy")}}>Comedy</button></div>
+      <div><button type="button" className={"btn btn-outline-light wht " + (this.state.genre == "Science Fiction" ? "active" : "")} onClick={() => {this.discoverGenre("Science Fiction")}}>SCI-FI</button></div>
+      <div><button type="button" className={"btn btn-outline-light wht " + (this.state.genre == "Fantasy" ? "active" : "")} onClick={() => {this.discoverGenre("Fantasy")}}>Fantasy</button></div>
+      <div><button type="button" className={"btn btn-outline-light wht " + (this.state.genre == "Horror" ? "active" : "")} onClick={() => {this.discoverGenre("Horror")}}>Horror</button></div>
+      <div><button type="button" className={"btn btn-outline-light wht " + (this.state.genre == "Documentary" ? "active" : "")} onClick={() => {this.discoverGenre("Documentary")}}>Documentary</button></div>
         </div>
         <div className="card-container">{html}</div>
       </div>
