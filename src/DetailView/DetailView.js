@@ -139,7 +139,7 @@ class DetailView extends Component {
                 break;
             case "LOADED":
 
-                movie = <img src={"http://image.tmdb.org/t/p/w342/" + this.state.movie.poster_path} />
+                movie = <img src={"http://image.tmdb.org/t/p/w342/" + this.state.movie.poster_path} className="poster-image" />
                 var onWishList = this.state.onWishList;
 
                 var starIconClass = "ml-3 far fa-star fa-lg star";
@@ -182,16 +182,19 @@ class DetailView extends Component {
             default:
                 html = <b>Failed to load data, please try again.</b>;
                 break;
-        }
+        }                       
 
         return (
-            <div className="container d-flex flex-wrap flex-lg-nowrap">
-                <div className="d-flex flex-row justify-content-between flex-grow-1">
-                    <i className="fas fa-chevron-left fa-2x mt-4 mr-4" onClick={() => this.props.history.goBack()} style={{ cursor: 'pointer' }}></i>
-                    <div className="m-3 moviePoster">{movie}</div>
-                    <div></div>
+            <div className="container">
+            <div className="detail-view-container d-flex flex-wrap flex-lg-nowrap">
+                <div className="d-flex detail-view-header flex-grow-1">
+                    <div className="d-flex flex-grow-1 justify-content-center position-relative">
+                        <i className="fas fa-chevron-left fa-2x m-4 detail-view-back-button" onClick={() => this.props.history.goBack()} style={{ cursor: 'pointer' }}></i>
+                        {movie}
+                    </div>
                 </div>
-                <div className="d-flex flex-wrap justify-content-center">{html}</div>
+                <div className="d-flex flex-wrap justify-content-center m-4">{html}</div>
+            </div>  
             </div>
         );
     }

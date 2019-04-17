@@ -267,13 +267,18 @@ transform: scale(1.2);
   }
 
   .poster-image {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
   }
 
   @media (min-width: 992px) {
     .poster-image {
       border-top-left-radius: 10px;
+      border-top-right-radius: 0px;
       border-bottom-left-radius: 10px;
-      text-align: center;
+      border-bottom-right-radius: 0px;
     }
 
     .detail-view-header {
