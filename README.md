@@ -24,7 +24,8 @@ npm install
 npm run build
 ```
 You also need to have firebase installed. To read more about firebase and how to install click [here](https://firebase.google.com/).
-To run the app, run follwing in the console:
+
+To run the app, run the following code in the console:
 ```
 npm start
 ```
