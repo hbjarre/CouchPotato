@@ -73,7 +73,7 @@ class DetailView extends Component {
     }
 
     CouchPotatoRating(movie) {
-        if (movie.vote_average === "0") {
+        if (movie.vote_average == "0") {
             return <h5>No score</h5>
         }
         else {
@@ -111,7 +111,7 @@ class DetailView extends Component {
 
     getSomeList(badlist, goodlist) {
         for (let i in badlist) {
-            if (i === 0){
+            if (i == 0){
                 goodlist.push(badlist[i].name)
             }
             else {goodlist.push(", " + badlist[i].name)}
