@@ -16,6 +16,9 @@ class SearchResults extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
+    this.setState({
+            status: "LOADING"
+          })
     const old = this.state.search;
     const old_page = this.state.page;
     const newStr = nextProps.match.params.str;
@@ -100,10 +103,10 @@ class SearchResults extends Component {
 
         movies = this.state.movies;
         if (this.state.page!==1){
-        var back_btn =<Link to={`/search/title=${this.state.search}&page=${parseInt(this.state.page)-1}`} ><i className="fas fa-chevron-left fa-2x" style={{ cursor: 'pointer' }}></i></Link>
+        var back_btn =<Link to={`/search/title=${this.state.search}&page=${parseInt(this.state.page)-1}`} ><i className="fas fa-chevron-left fa-2x" style={{ color: "white", cursor: 'pointer' }}></i></Link>
         }
         if (this.state.page<this.state.max_pages){
-        var next_btn = <Link to={`/search/title=${this.state.search}&page=${parseInt(this.state.page)+1}`} ><i className="fas fa-chevron-right fa-2x" style={{ cursor: 'pointer' }}></i></Link>
+        var next_btn = <Link to={`/search/title=${this.state.search}&page=${parseInt(this.state.page)+1}`} ><i className="fas fa-chevron-right fa-2x" style={{ color: "white", cursor: 'pointer' }}></i></Link>
         }
         if (movies.results !== undefined) {
           html = movies.results.map((element, index) =>
