@@ -1,7 +1,7 @@
-import ObservableModel from "./ObservableModel";
+
 import fire from "../config/Fire";
 
-class GalleryModel extends ObservableModel {
+class GalleryModel {
 
       getMovie(str, page) {
        

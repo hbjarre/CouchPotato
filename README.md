@@ -64,9 +64,6 @@ npm start
 - **GalleryModel.js**
 	#Here we have all our functions that make api calls and changes to our database in firebase.
 
-- **ObservableModel.js**
-	#Here we have our observer functions. Our GalleryModel is later extended with this file.
-
 - **DetailView.css**
 	#Detail view stylesheet.
 	
