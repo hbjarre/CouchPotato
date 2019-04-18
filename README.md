@@ -16,6 +16,15 @@ The app uses React as framework and :fire:[firebase](https://firebase.google.com
 > - Start by creating a user by clicking "signup". You can use a fake email adress if you want.
 > - From here on you can use this user whenever you are logged out or from any computer you want.
 
+**To build and deploy website:**
+
+In the console do following. Go to the local directory of the app and run:
+```
+npm install
+npm run build
+```
+You also need to have firebase installed. To read more about firebase and how to install click [here](https://firebase.google.com/).
+
 ## What we have done
 * Model connected to the OMDb API
 * Login with Firebase
@@ -99,4 +108,4 @@ The app uses React as framework and :fire:[firebase](https://firebase.google.com
 	#Main application css file. Idea is to keep most of the custom css here.
 
 - **star.js**
-	#
+	#Creates the stars thar users can interact with when hovering over movies shown in welcome view and searchresults view.
