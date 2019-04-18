@@ -100,10 +100,10 @@ class SearchResults extends Component {
 
         movies = this.state.movies;
         if (this.state.page!=1){
-        var back_btn =<Link to={`/search/title=${this.state.search}&page=${parseInt(this.state.page)-1}`} ><i className="fas fa-chevron-left fa-2x mt-4 mr-4" style={{ cursor: 'pointer' }}></i></Link>
+        var back_btn =<Link to={`/search/title=${this.state.search}&page=${parseInt(this.state.page)-1}`} ><i className="fas fa-chevron-left fa-2x" style={{ cursor: 'pointer' }}></i></Link>
         }
         if (this.state.page<this.state.max_pages){
-        var next_btn = <Link to={`/search/title=${this.state.search}&page=${parseInt(this.state.page)+1}`} ><i className="fas fa-chevron-right fa-2x mt-4 mr-4" style={{ cursor: 'pointer' }}></i></Link>
+        var next_btn = <Link to={`/search/title=${this.state.search}&page=${parseInt(this.state.page)+1}`} ><i className="fas fa-chevron-right fa-2x" style={{ cursor: 'pointer' }}></i></Link>
         }
         if (movies.results != undefined) {
           html = movies.results.map((element, index) =>
@@ -127,8 +127,13 @@ class SearchResults extends Component {
       <div className="container d-flex flex-wrap flex-lg-nowrap">
        <Link to="/" style={{ textDecoration: "white", color: "white" }}>
        <i className="fas fa-chevron-left fa-2x mt-4 mr-4" style={{ cursor: 'pointer' }}></i></Link>
+       <div>
         <div className="d-flex flex-wrap justify-content-center">{html}</div>
-        {back_btn}{next_btn}
+        <div className="d-flex justify-content-center mb-5">
+          {back_btn}<p className="align-self-center mb-0 mx-5">{this.state.page}</p>{next_btn}
+        </div>
+      </div>
+        
       </div>
     );
   }

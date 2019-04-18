@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { FormControl } from 'react-bootstrap';
 import { Link } from "react-router-dom";
 
 class SearchView extends Component {
@@ -24,26 +23,18 @@ class SearchView extends Component {
 
   render() {
     return (
-      <form className="d-flex navbar-form navbar-right form-horizontal" onSubmit={() => this.handleSubmit}>
-        <FormControl
-          className="search-box"
-          role="search"
-          placeholder="Search"
-          aria-label="Search"
-          value={this.state.searchValue}
-          onChange={this.handleSearchChange}
-          name="searchValue"
-        />
-        <Link style={{ textDecoration: "black", color: "black", paddingTop: "5px" }}
-          to={{
-            pathname: "/search/title=" + this.state.searchValue.replace(" ", "+")+"&page=1",
-            state: {
-              search: this.state.searchValue,
-            }
-          }}
-        >
-          <button type="submit"><span className="glyphicon glyphicon-search"></span></button>
-        </Link>
+      <form className="form-inline" onSubmit={() => this.handleSubmit}>
+        <input type="search" class="form-control" placeholder="Search" value={this.state.searchValue} onChange={this.handleSearchChange} name="searchValue"></input>
+          <Link
+            to={{
+              pathname: "/search/title=" + this.state.searchValue.replace(" ", "+")+"&page=1",
+              state: {
+                search: this.state.searchValue,
+              }
+            }}
+          >
+          <button className="btn btn-outline-light ml-sm-2 mt-2 mt-sm-0" type="submit"><i class="fas fa-search"></i></button>
+          </Link>
 
       </form>
 

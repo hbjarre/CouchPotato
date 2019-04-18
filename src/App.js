@@ -41,6 +41,7 @@ class App extends Component {
 
       <div className="App">
               <Header/>
+              <div className="mt-3">
               <Route exact path="/" component={Welcome} />
               <Route exact path={`/search/title=:str&page=:page`} component={SearchResults} />
               <Route path="/movie/:id" component={DetailView} />
@@ -56,6 +57,7 @@ class App extends Component {
               <Route path="/login" component={Login} />
             </div>
           )}
+          </div>
       </div>
 
     );
