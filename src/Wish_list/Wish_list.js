@@ -35,7 +35,7 @@ class Wish_list extends Component {
       var query = db.collection("user_data").where("user_id", "==", this.state.user.uid);
 
       query.get().then((doc) => {
-          if (doc.size == 0) {
+          if (doc.size === 0) {
             this.setState({
               status: "LOADED"
             });

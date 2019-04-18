@@ -27,17 +27,17 @@ class Header extends Component {
 
     render() {
         var login_info =
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{this.state.user.email}</a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li className="nav-item dropdown">
+                <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{this.state.user.email}</a>
+                <div className="dropdown-menu" aria-labelledby="navbarDropdown">
                     <Link to="/wish_list" className="dropdown-item">Watch list</Link>
-                    <div class="dropdown-divider"></div>
+                    <div className="dropdown-divider"></div>
                     <Link to="/login" onClick={this.logout} className="dropdown-item">Logout</Link>
                 </div>
             </li>;
 
         if (this.state.user === false) {
-            login_info = <li class="nav-item"><Link to="/login" aria-haspopup="true" aria-expanded="false" className="nav-link">Login/Sign up</Link></li>;
+            login_info = <li className="nav-item"><Link to="/login" aria-haspopup="true" aria-expanded="false" className="nav-link">Login/Sign up</Link></li>;
         }
         return (
             <div>

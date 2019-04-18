@@ -4,8 +4,9 @@
 
 ## Short description of our project
 With our website you can look up information about different movies and series! Features include:
+* Search around for titles of movies
+* Discovery mode, where you can click on different genres to discover popular movies in that genre
 * Wish list, where you can add movies or series(by clicking :star:) that you want to watch later
-* My rated list, where you can see which movies and series you have rated
 
 The app uses React as framework and :fire:[firebase](https://firebase.google.com/) for our backend. The API that we've used is [OMDb API](http://www.omdbapi.com/).
 
@@ -15,29 +16,14 @@ The app uses React as framework and :fire:[firebase](https://firebase.google.com
 > - Start by creating a user by clicking "signup". You can use a fake email adress if you want.
 > - From here on you can use this user whenever you are logged out or from any computer you want.
 
-
-**To build and deploy website:**
-
-In the console do following. Go to the local directory of the app and run:
-```
-npm install
-npm run build
-firebase deploy
-```
-
 ## What we have done
 * Model connected to the OMDb API
 * Login with Firebase
 * Header with a searchbar and menu
-* Search function with a filter for showing movies/series/episodes
-* Detail view for individual movies/series/episodes
+* Start page with popular movies
+* Search function with a filter for showing movies
+* Detail view for individual movies
 * Wish list function that saves a users wish list in a Firebase database
-
-## What we still plan to do
-* A start page
-* Rating function that saves a users ratings in a Firebase database
-* More interactions
-* Finishing touches
 
 
 
@@ -65,7 +51,7 @@ firebase deploy
 	#Here we have all our functions that make api calls and changes to our database in firebase.
 
 - **ObservableModel.js**
-	#Here we have our observer functions. Our GalleryModel is later extended with this file. We never notify our observers so this file may be completely useless? If you have any comments about whether we should use this or not, please tell us :blush:
+	#Here we have our observer functions. Our GalleryModel is later extended with this file.
 
 - **DetailView.css**
 	#Detail view stylesheet.
@@ -79,11 +65,11 @@ firebase deploy
 - **Login.js**
 	#Login view. Handles logins and signup to our database in firebase. This file checks if a user has correctly logged in, or correctly signed up through connection with firebase. It also shows the login screen.
 
+- **BigBoyMovieCard.js**
+	#
+
 - **MovieCard.js**
 	#Preview card of a movie that shows as search results. Has a cover image and title.
-
-- **Rated_list.js**
-	#Currently empty. Planned to be a list where the user can add movies that are then sorted/ordered based on a rating system.
 
 - **SearchResultView.js**
 	#Shows the search results.
@@ -91,15 +77,11 @@ firebase deploy
 - **SearchView.js**
 	#Main search page. Contains the search form.
 
-- **Settings.js**
-	#Settings page. Currently does not have any content. Plan is to have account management here.
-
 - **Welcome.css**
 	#Stylesheet for homepage.
 
 - **Welcome.js**
 	#Homepage. Currently does not contain any content.
-
 
 - **Wish_list.js**
 	#Creates a user specific wish list/list of favorites. User can save movies to this list by clicking the star icon when viewing movie details.
@@ -116,4 +98,5 @@ firebase deploy
 - **App.css**
 	#Main application css file. Idea is to keep most of the custom css here.
 
-
+- **star.js**
+	#

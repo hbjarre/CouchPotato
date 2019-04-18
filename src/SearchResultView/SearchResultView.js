@@ -21,7 +21,7 @@ class SearchResults extends Component {
     const newStr = nextProps.match.params.str;
     const new_page = nextProps.match.params.page;
 
-    if (old != newStr || old_page != new_page) {
+    if (old !== newStr || old_page !== new_page) {
       modelInstance.getMovie(newStr, this.state.page).then(
         movieResponse => {
           this.setState({
@@ -99,13 +99,13 @@ class SearchResults extends Component {
       case "LOADED":
 
         movies = this.state.movies;
-        if (this.state.page!=1){
+        if (this.state.page!==1){
         var back_btn =<Link to={`/search/title=${this.state.search}&page=${parseInt(this.state.page)-1}`} ><i className="fas fa-chevron-left fa-2x" style={{ cursor: 'pointer' }}></i></Link>
         }
         if (this.state.page<this.state.max_pages){
         var next_btn = <Link to={`/search/title=${this.state.search}&page=${parseInt(this.state.page)+1}`} ><i className="fas fa-chevron-right fa-2x" style={{ cursor: 'pointer' }}></i></Link>
         }
-        if (movies.results != undefined) {
+        if (movies.results !== undefined) {
           html = movies.results.map((element, index) =>
             <MovieCard movie={element} key={index}/>
           );
@@ -114,7 +114,7 @@ class SearchResults extends Component {
         else {
           html = <b>Could not find any movies with the title {this.state.search}.</b>;
         }
-        if (movies.total_results == 0) {
+        if (movies.total_results === 0) {
           html = <b>Could not find any movies with the title {this.state.search}.</b>
         }
         break;

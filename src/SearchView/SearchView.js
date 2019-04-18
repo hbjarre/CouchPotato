@@ -24,7 +24,7 @@ class SearchView extends Component {
   render() {
     return (
       <form className="form-inline" onSubmit={() => this.handleSubmit}>
-        <input type="search" class="form-control" placeholder="Search" value={this.state.searchValue} onChange={this.handleSearchChange} name="searchValue"></input>
+        <input type="search" className="form-control" placeholder="Search" value={this.state.searchValue} onChange={this.handleSearchChange} name="searchValue"></input>
           <Link
             to={{
               pathname: "/search/title=" + this.state.searchValue.replace(" ", "+")+"&page=1",
@@ -33,7 +33,7 @@ class SearchView extends Component {
               }
             }}
           >
-          <button className="btn btn-outline-light ml-sm-2 mt-2 mt-sm-0" type="submit"><i class="fas fa-search"></i></button>
+          <button className="btn btn-outline-light ml-sm-2 mt-2 mt-sm-0" type="submit"><i className="fas fa-search"></i></button>
           </Link>
 
       </form>
