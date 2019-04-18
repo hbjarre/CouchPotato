@@ -79,7 +79,7 @@ npm start
 	#Login view. Handles logins and signup to our database in firebase. This file checks if a user has correctly logged in, or correctly signed up through connection with firebase. It also shows the login screen.
 
 - **BigBoyMovieCard.js**
-	#
+	#The same as MovieCard.js, only makes a bigger image.
 
 - **MovieCard.js**
 	#Preview card of a movie that shows as search results. Has a cover image and title.
